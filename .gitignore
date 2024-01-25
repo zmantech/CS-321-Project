@@ -1,1 +1,4 @@
+#ignore any class files so they arent uploaded to github
 *.class
+#ignore any files in temp/ folder such as settings
+temp/
