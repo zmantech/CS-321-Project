@@ -1,20 +1,40 @@
 /**
- * this class will hold all the data for a person in one place
+ * this class will hold all the data for a person in one place.
  */
 public class Person {
     
+    /**
+     * their first name.
+     */
     private String firstName;
+    /**
+     * their last name.
+     */
     private String lastName;
+    /**
+     * their age in years
+     */
     private int age;
+    /**
+     * their weight in lbs.
+     */
     private int weight;
+    /**
+     * the number of feet of how tall they are.
+     */
     private int feet;
+    /**
+     * the amount of inches remaining from feet.
+     */
     private int inches;
+    /**
+     * the gender of the person.
+     */
     private Gender gender;
-    
 
 
     /**
-     * a constructor that builds off of all individual characteristics
+     * a constructor that builds off of all individual characteristics.
      * @param firstName the person first name
      * @param lastName  the persons last name
      * @param age       the person age in years
@@ -36,15 +56,15 @@ public class Person {
 
 
     /**
-     * a constructor that builds off a relative file
+     * a constructor that builds off a relative file.
      * @param file this constructor will build a person object using a string that is the location of a file
      */
     public Person(String file) {
-        //TODO will call several methods in File "get(Attribute)(File)"
+        //TODO will call several methods in File "get[Attribute](File) and set that equal to that attributue"
     }
 
     /**
-     * a getter for the persons first name
+     * a getter for the persons first name.
      * @return the persons first name
      */
     public String getFirstName() {
@@ -52,7 +72,7 @@ public class Person {
     }
 
     /**
-     * a getter for the last name
+     * a getter for the last name.
      * @return the persons last name
      */
     public String getLastName() {
@@ -60,7 +80,7 @@ public class Person {
     }
 
     /**
-     * a getter for the full name
+     * a getter for the full name.
      * @return the persons first name + last name
      */
     public String getFullName() {
@@ -68,7 +88,7 @@ public class Person {
     }
 
     /**
-     * a getter for  the persons age
+     * a getter for  the persons age.
      * @return  the persons age
      */
     public int getAge() {
@@ -76,7 +96,15 @@ public class Person {
     }
 
     /**
-     * a getter for the weight
+     * a getter for the persons age in months.
+     * @return  the amount of months of a persons age
+     */
+    public int getAgeMonths() {
+        return this.age * 12;
+    }
+
+    /**
+     * a getter for the weight.
      * @return  the weight of the individual in lbs
      */
     public int getWeight() {
@@ -84,7 +112,7 @@ public class Person {
     }
 
     /**
-     * a getter for feet
+     * a getter for feet.
      * @return  the feet of the persons height
      */
     public int getFeet() {
@@ -92,7 +120,7 @@ public class Person {
     }
 
     /***
-     * a getter for the persons remainder inches after feet
+     * a getter for the persons remainder inches after feet.
      * @return  the number of inches not in the persons feet
      */
     public int getInches() {
@@ -100,15 +128,15 @@ public class Person {
     }
 
     /**
-     * a getter that adds the feet to the total num of inches 
+     * a getter that adds the feet to the total num of inches.
      * @return  an int of the persons total height
      */
-    public int getHeightTotal() {
+    public int getHeight() {
         return this.feet * 12 + this.inches;
     }
 
     /**
-     * a getter for the persons gender
+     * a getter for the persons gender.
      * @return  the gender of the individual
      */
     public Gender getGender() {
@@ -116,7 +144,7 @@ public class Person {
     }
 
     /**
-     * a setter for the firstname
+     * a setter for the firstname.
      * @param firstName the first name to set
      */
     public void setFirstName(String firstName) {
@@ -124,7 +152,7 @@ public class Person {
     }
 
     /**
-     * a setter for the last name
+     * a setter for the last name.
      * @param lastName  the last name to set
      */
     public void setLastName(String lastName) {
@@ -132,16 +160,16 @@ public class Person {
     }
 
     /**
-     * a setter for the full name
+     * a setter for the full name.
      * @param fullName  the full name "FirstName Lastname" to set
      */
     public void setFullName(String fullName) {
-        this.firstName = fullName.substring(0, fullName.indexOf(' '));
-        this.lastName = fullName.substring(fullName.indexOf(' '));
+        this.firstName = fullName.substring(0, fullName.indexOf(' '));//searchs for the space between first name and lastname
+        this.lastName = fullName.substring(fullName.indexOf(' ') + 1);//adds so it doesnnt include the space in the lastname
     }
     
     /**
-     * a setter for the age
+     * a setter for the age.
      * @param age   the age of the individual in years
      */
     public void setAge(int age) {
@@ -149,7 +177,7 @@ public class Person {
     }
 
     /**
-     * a setter for the weight
+     * a setter for the weight.
      * @param weight the weight to set in lbs
      */
     public void setWeight(int weight) {
@@ -157,7 +185,7 @@ public class Person {
     }
 
     /**
-     * a setter for the number of feet
+     * a setter for the number of feet.
      * @param feet  the feet to set for the individual
      */
     public void setFeet(int feet) {
@@ -165,7 +193,7 @@ public class Person {
     }
 
     /**
-     * a setter for the number of remainder inches in the persons height
+     * a setter for the number of remainder inches in the persons height.
      * @param inches    the inches to set for the individual
      */
     public void setInches(int inches) {
@@ -173,7 +201,7 @@ public class Person {
     }
 
     /**
-     * a setter for the persons total height in inches
+     * a setter for the persons total height in inches.
      * @param inches    the total height to set for the person
      */
     public void setHeight(int inches) {
@@ -182,7 +210,7 @@ public class Person {
     }
 
     /**
-     * a setter for the persons gender
+     * a setter for the persons gender.
      * @param gender    the gender to set
      */
     public void setGender(Gender gender) {
@@ -190,7 +218,7 @@ public class Person {
     }
 
     /**
-     * a to string override method is how the person will be used to write to files 
+     * a to string override method is how the person will be used to write to files.
      * @return the string of the person
      */
     @Override
@@ -211,6 +239,8 @@ public class Person {
      */
     @Override
     public boolean equals(Object other) {
+        if(other == this)
+            return true;
         if(!(other instanceof Person))
             return false;
         if(this.firstName.equals(((Person) other).firstName) &&
