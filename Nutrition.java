@@ -2,7 +2,7 @@
  * class will be called with weight etc other data needed and pass in BSA etc all methods should be static.
  */
 public class Nutrition {
-    
+
     /**
      * this function gets the Basal Metabolic Rate (BMR) of the person who is passed in.
      * @param person    the person to get the bmr of.
