@@ -9,7 +9,18 @@ public class File {
     //create methods to call which save edit read weight etc
     //this will be what other methods call
     public static int getWeight(String file) {
-    
+
+        try {
+            File myFile = new File(file);
+            Scanner myScanner = new Scanner(myFile);
+
+            while(myScanner.hasNextLine()) {
+                
+            }
+
+        } catch (Exception e) {
+            return -1;
+        }
     }
     /**
      * takes in a person and filename and saves the person to string to that file.
