@@ -60,7 +60,7 @@ public class Person {
      * @param file this constructor will build a person object using a string that is the location of a file
      */
     public Person(String file) {
-        //TODO will call several methods in File "get[Attribute](File) and set that equal to that attributue"
+        this.Person(File.getFirstName(file),File.getLastName(file),File.getAge(file),File.getWeight(file),File.getFeet(file),File.getInches(file),File.getGender(file));
     }
 
     /**
@@ -223,12 +223,12 @@ public class Person {
      */
     @Override
     public String toString() {
-        return "FIRST NAME: " + this.firstName + "\n" +
-                "LAST NAME: " + this.lastName + "\n" +
+        return "FIRST_NAME: " + this.firstName + "\n" +
+                "LAST_NAME: " + this.lastName + "\n" +
                 "AGE: " + this.age + "\n" +
                 "WEIGHT: " + this.weight + "\n" +
-                "HEIGHT FEET: " + this.feet + "\n" +
-                "HEIGHT INCHES: " + this.inches + "\n" +
+                "HEIGHT_FEET: " + this.feet + "\n" +
+                "HEIGHT_INCHES: " + this.inches + "\n" +
                 "GENDER: " + this.gender;
     }
     
