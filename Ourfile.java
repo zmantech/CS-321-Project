@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.*; 
 
 /**
- * all methods should be static.
- * should be a reader and writer class.
+ * class to handle writing and saving a Person object.
+ * everything is static and requires either a file string or person object.
  */
-public class File {
+public class Ourfile {
     
     /**
      * a getter that opens a file and gets the first name
@@ -21,14 +21,18 @@ public class File {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("FIRST_NAME: "))
+                if(line.substring(line.charAt(' ')).equals("FIRST_NAME: ")) {
+                    myScanner.close();
                     return line.substring(line.charAt(' ') + 1);
+                }
+                    
 
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return "";
         }
+        return "";
     }
 
     /**
@@ -45,14 +49,16 @@ public class File {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("LAST_NAME: "))
+                if(line.substring(line.charAt(' ')).equals("LAST_NAME: ")) {
+                    myScanner.close();
                     return line.substring(line.charAt(' ') + 1);
-
+                }
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return "";
         }
+        return "";
     }
 
     /**
@@ -69,14 +75,18 @@ public class File {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("WEIGHT: "))
+                if(line.substring(line.charAt(' ')).equals("WEIGHT: ")) {
+                    myScanner.close();
                     return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                }
+                    
 
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return -1;
         }
+        return -1;
     }
 
     /**
@@ -93,14 +103,17 @@ public class File {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("AGE: "))
+                if(line.substring(line.charAt(' ')).equals("AGE: ")) {
+                    myScanner.close();
                     return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                }
 
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return -1;
         }
+        return -1;
     }
 
     /**
@@ -117,14 +130,17 @@ public class File {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("FEET: "))
+                if(line.substring(line.charAt(' ')).equals("FEET: ")) {
+                    myScanner.close();
                     return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                }
 
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return -1;
         }
+        return -1;
     }
 
     /**
@@ -141,14 +157,17 @@ public class File {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("INCHES: "))
+                if(line.substring(line.charAt(' ')).equals("INCHES: ")) {
+                    myScanner.close();
                     return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                }
 
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return -1;
         }
+        return -1;
     }
 
     /**
@@ -166,17 +185,21 @@ public class File {
                 String line = myScanner.nextLine();
                 
                 if(line.substring(line.charAt(' ')).equals("GENDER: ")) {
-                    if(line.substring(line.charAt(' ') + 1).equals("MALE"))
+                    if(line.substring(line.charAt(' ') + 1).equals("MALE")) {
+                        myScanner.close();
                         return Gender.MALE;
-                    else
+                    } else {
+                        myScanner.close();
                         return Gender.FEMALE;
+                    }
                 }
 
             }
-
+            myScanner.close();
         } catch (Exception e) {
             return Gender.MALE;
         }
+        return Gender.MALE;
     }
 
     /**
@@ -187,14 +210,13 @@ public class File {
      */
     public static boolean savePerson(Person person, String file) {
         try {
-            FileWriter writer = new FileWrite(file);//creates writer
+            FileWriter writer = new FileWriter(file);//creates writer
             writer.write(person.toString());//uses to string to put person info in file
             writer.close();//closes the pointer
             return true;//ends
         } catch (Exception e) {
             return false;//writing failed
         }
-        return false;
     }
 
 }

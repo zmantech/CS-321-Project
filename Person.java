@@ -60,7 +60,13 @@ public class Person {
      * @param file this constructor will build a person object using a string that is the location of a file
      */
     public Person(String file) {
-        this.Person(File.getFirstName(file),File.getLastName(file),File.getAge(file),File.getWeight(file),File.getFeet(file),File.getInches(file),File.getGender(file));
+        this.firstName = Ourfile.getFirstName(file);
+        this.lastName = Ourfile.getLastName(file);
+        this.age = Ourfile.getAge(file);
+        this.weight = Ourfile.getWeight(file);
+        this.feet = Ourfile.getFeet(file);
+        this.inches = Ourfile.getInches(file);
+        this.gender = Ourfile.getGender(file);
     }
 
     /**
