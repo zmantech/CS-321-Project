@@ -8,7 +8,9 @@ import java.util.*;
 public class File {
     //create methods to call which save edit read weight etc
     //this will be what other methods call
-
+    public static int getWeight(String file) {
+    
+    }
     /**
      * takes in a person and filename and saves the person to string to that file.
      * @param person    the person to write to the file uses toString method
