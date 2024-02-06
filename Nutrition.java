@@ -9,10 +9,10 @@ public class Nutrition {
      * @return          The bmr of the person.
      */
     public static float getCalories(Person person) {
-        if(person.getGender() == gender.MALE) {
-            return 66.0 + (6.23 * person.getWeight()) + (12.7 * person.getHeight()) - (6.8 * person.getAge());
+        if(person.getGender() == Gender.MALE) {
+            return (float)(66.0 + (6.23 * person.getWeight()) + (12.7 * person.getHeight()) - (6.8 * person.getAge()));
         } else { //female
-            return 655 + (4.35 * person.getWeight()) + (4.7 * person.getHeight()) - (4.7 * person.getAge());
+            return (float)(655 + (4.35 * person.getWeight()) + (4.7 * person.getHeight()) - (4.7 * person.getAge()));
         }
     }
 
@@ -22,7 +22,7 @@ public class Nutrition {
      * @return          the amount of protein in grams they should eat per day.
      */
     public static float getProtein(Person person) {
-        return person.getWeight() * .36;
+        return (float)(person.getWeight() * 0.36);
     }
 
 
