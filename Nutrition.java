@@ -17,6 +17,15 @@ public class Nutrition {
     }
 
     /**
+     * method returns the amount of water a person should drink per day in ounces.
+     * @param person    the person to check how much water they should drink.
+     * @return          the amount of water in ounces person should drink per day.
+     */
+    public static float getWater(Person person) {
+        return (float) .5 * person.getWeight();
+    }
+
+    /**
      * this class will get the amount of protein a person should eat per day.
      * @param person    the person to check their protein.
      * @return          the amount of protein in grams they should eat per day.
