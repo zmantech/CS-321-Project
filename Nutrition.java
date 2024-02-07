@@ -66,8 +66,8 @@ public class Nutrition {
      * @param person    the person to check their Vitamins. *Placeholder to later replace with a structure.
      * @return          the list of Vitamins in grams-micrograms they should eat per day.
      */
-    public static float getVitamins(Person person) {  //A double datatype structure(class or list) is needed for all 13+ essential vitamins
-        return 0; //placeholder
+    public static Vitamin weightMaintainVitamins(Person person) {  //A double datatype structure(class or list) is needed for all 13+ essential vitamins
+        return new Vitamin(); //placeholder
     } //Essential Vitamins per the NCCIH standards: Vitamins A, B(Thiamin, Riboflavin, Niacin, Pantothenic acid, Pyridoxine, Cobalamin, Biotin, Folate Acid), C, D, E, K 
 
     /**
@@ -75,7 +75,7 @@ public class Nutrition {
      * @param person    the person to check their Minerals. *Placeholder to later replace with a structure.
      * @return          the amount of Minerals in grams-micrograms they should eat per day.
      */
-    public static float getMinerals(Person person) { //A double datatype structure(class or list) is needed for all 15+ essential minerals
-        return 0; //placeholder
+    public static Minerals weightMaintainMinerals(Person person) { //A double datatype structure(class or list) is needed for all 15+ essential minerals
+        return new Minerals(); //placeholder
     } //Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium
 }
