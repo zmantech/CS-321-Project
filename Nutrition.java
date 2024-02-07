@@ -53,15 +53,6 @@ public class Nutrition {
     }
 
     /**
-     * this class will get the amount of Water a person should drink per day.
-     * @param person    the person to check their Hydration.
-     * @return          the amount of Water in grams they should drink per day.
-     */
-    public static float getHydration(Person person) {
-        return 0; //placeholder
-    }
-
-    /**
      * this class will get the amount of Fiber a person should eat per day.
      * @param person    the person to check their Fiber.
      * @return          the amount of Fiber in grams they should eat per day.
