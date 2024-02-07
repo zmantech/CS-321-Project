@@ -21,9 +21,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("FIRST_NAME: ")) {
+                if(line.substring(line.indexOf(' ')).equals("FIRST_NAME: ")) {
                     myScanner.close();
-                    return line.substring(line.charAt(' ') + 1);
+                    return line.substring(line.indexOf(' ') + 1);
                 }
                     
 
@@ -49,9 +49,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("LAST_NAME: ")) {
+                if(line.substring(line.indexOf(' ')).equals("LAST_NAME: ")) {
                     myScanner.close();
-                    return line.substring(line.charAt(' ') + 1);
+                    return line.substring(line.indexOf(' ') + 1);
                 }
             }
             myScanner.close();
@@ -75,9 +75,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("WEIGHT: ")) {
+                if(line.substring(line.indexOf(' ')).equals("WEIGHT: ")) {
                     myScanner.close();
-                    return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                    return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
                     
 
@@ -103,9 +103,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("AGE: ")) {
+                if(line.substring(line.indexOf(' ')).equals("AGE: ")) {
                     myScanner.close();
-                    return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                    return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
 
             }
@@ -130,9 +130,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("FEET: ")) {
+                if(line.substring(line.indexOf(' ')).equals("FEET: ")) {
                     myScanner.close();
-                    return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                    return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
 
             }
@@ -157,9 +157,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("INCHES: ")) {
+                if(line.substring(line.indexOf(' ')).equals("INCHES: ")) {
                     myScanner.close();
-                    return Integer.parseInt(line.substring(line.charAt(' ') + 1));
+                    return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
 
             }
@@ -184,8 +184,8 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(line.charAt(' ')).equals("GENDER: ")) {
-                    if(line.substring(line.charAt(' ') + 1).equals("MALE")) {
+                if(line.substring(line.indexOf(' ')).equals("GENDER: ")) {
+                    if(line.substring(line.indexOf(' ') + 1).equals("MALE")) {
                         myScanner.close();
                         return Gender.MALE;
                     } else {
