@@ -1,24 +1,23 @@
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.BoxLayout; 
-import java.awt.Component; 
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
 
-
-
-public class Dropdown {
+public class Dropdown implements ItemListener {
 
     /**
      * The panel to put the dropdown.
      */
-    JPanel panel;
+    private JPanel jpanel;
 
     /**
      * This is all of the choices for this dropdown.
      */
     public String[] choices;
+
+    /**
+     * The Width and Height of the dropdown, will be 0 for default constructor.
+     */
+    public int width, height;
 
     /**
      * This is the actual drop down item.
@@ -31,47 +30,73 @@ public class Dropdown {
     private final float alignment = Component.CENTER_ALIGNMENT;
 
     /**
+     * This is the ItemListener that will state where you are within the dropdown.
+     */
+    public ItemListener listener;
+
+
+    /**
      * This is the constructor for the dropdown. This sets and creates the data_dropDown variable.
-     * @param choices A string list of each choice in the dropdown.
+     * @param list A string list of each choice in the dropdown.
+     * @param panel The JPanel this dropdown will be added to.
      * @see data_dropDown
      */
     public Dropdown(String[] list, JPanel panel) {
         choices = list;
         data_dropDown = new JComboBox<String>(choices);
-        createDropdown(data_dropDown);
-        this.panel = panel;
+        width = 0;
+        height = 0;
+        createDropdown();
+        jpanel = panel;
+    }
+    /**
+     * This is the constructor for the dropdown. This sets and creates the data_dropDown variable.
+     * @param list A string list of each choice in the dropdown.
+     * @see data_dropDown
+     */
+    public Dropdown(String[] list, JPanel panel, int width, int height) {
+        choices = list;
+        data_dropDown = new JComboBox<String>(choices);
+        this.width = width;
+        this.height = height;
+        createDropdownWidthHeight();
+        jpanel = panel;
     }
 
     /**
-     * Inate method called by the constructor to create the JComboBox
-     * @param data_dropDown Used to create the JComboBox
+     * Inate method called by the constructor to create the JComboBox.
      */
-    private void createDropdown(JComboBox<String> data_dropDown) {
+    private void createDropdown() {
         data_dropDown.setMaximumSize(data_dropDown.getPreferredSize());
         data_dropDown.setAlignmentX(alignment);
         data_dropDown.setVisible(true);
+        data_dropDown.addItemListener(listener);
+    }
+
+    private void createDropdownWidthHeight() {
+        data_dropDown.setPreferredSize(new Dimension(width,height));
+        data_dropDown.setAlignmentX(alignment);
+        data_dropDown.setVisible(true);
+        data_dropDown.addItemListener(listener);
     }
 
     /**
      * Add the Dropdown to the JPanel
-     * @param data_dropDown Used with the add function from JPanel
+     * @see panel The JPanel this Dropdown is being added to.
      * @see javax.swing.JPanel.add
      */
     public void addDropdown() {
-        
-        // Code here from alternate class to insert the dropdown to a JPanel.
-        panel.add(data_dropDown);
-        // Above code used for main testing.
+        jpanel.add(data_dropDown);
     }
 
     /**
-     * Change the size of the Dropdown.
-     * @param data_dropDown Used to change the size variable.
+     * This code will need to be in the larger GUI class, as it will listen for all item events
      */
-    public void changeSizeDropdown( /* Put variables here. */) {
-
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'itemStateChanged'");
     }
-
 
     
 
@@ -80,7 +105,7 @@ public class Dropdown {
     JFrame frame = new JFrame("A Simple GUI");
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(500, 500);
+    frame.setSize(1000, 1000);
     frame.setLocation(430, 100);
 
     JPanel panel = new JPanel();
@@ -96,7 +121,7 @@ public class Dropdown {
 
     String[] choicesTest = { "CHOICE 1","CHOICE 2", "CHOICE 3","CHOICE 4","CHOICE 5","CHOICE 6"};
 
-    /*final JComboBox<String> cb = new JComboBox<String>(choices);
+    /*JComboBox<String> cb = new JComboBox<String>(choices);
     cb.setMaximumSize(cb.getPreferredSize()); // added code
     cb.setAlignmentX(Component.CENTER_ALIGNMENT);
     cb.setVisible(true);*/
@@ -104,8 +129,10 @@ public class Dropdown {
     // BELOW IS TEST OF DROPDOWN CLASS
 
     Dropdown test = new Dropdown(choicesTest, panel);
+    Dropdown test2 = new Dropdown(choicesTest, panel, 20, 10);
 
-    test.addDropdown();
+    test2.addDropdown();
+    
 
     // END TEST
 
@@ -114,4 +141,6 @@ public class Dropdown {
     panel.add(btn);
 
     }
+
+    
 }
