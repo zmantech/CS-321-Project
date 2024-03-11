@@ -41,4 +41,12 @@ public class Minerals {
         if(EssentialM.replace(MineralName.toLowerCase(), EssentialM.get(MineralName.toLowerCase()), (Double) New)) return true;
         return false; 
     }
+    
+    /**
+     * this method will all users to user the mineral string so they can use the same array as this classes hashmap.
+     * @return  the string array that contains the names of types of minerals.
+     */
+    public String[] getAllMineralStrings() {
+        return this.AllMinerals;
+    }
 }
