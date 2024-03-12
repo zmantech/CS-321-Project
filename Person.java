@@ -32,6 +32,10 @@ public class Person {
      */
     private Gender gender;
 
+    /**
+     * the calories of the person.
+     */
+    private double calories;
 
     /**
      * a constructor that builds off of all individual characteristics.
@@ -52,6 +56,7 @@ public class Person {
         this.feet = feet;
         this.inches = inches;
         this.gender = gender;
+        this.calories = 0.0;
     }
 
 
@@ -67,6 +72,7 @@ public class Person {
         this.feet = Ourfile.getFeet(file);
         this.inches = Ourfile.getInches(file);
         this.gender = Ourfile.getGender(file);
+        this.calories = 0.0;
     }
 
     /**
@@ -147,6 +153,14 @@ public class Person {
      */
     public Gender getGender() {
         return this.gender;
+    }
+
+    /**
+     * a getter for this persons claories.
+     * @return  the calories the person needs to eat daily.
+     */
+    public double getCalories() {
+        return this.calories
     }
 
     /**
