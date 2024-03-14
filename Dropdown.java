@@ -75,6 +75,7 @@ public class Dropdown implements ItemListener {
 
     private void createDropdownWidthHeight() {
         data_dropDown.setPreferredSize(new Dimension(width,height));
+        data_dropDown.setMaximumSize(data_dropDown.getPreferredSize());
         data_dropDown.setAlignmentX(alignment);
         data_dropDown.setVisible(true);
         data_dropDown.addItemListener(listener);
@@ -129,7 +130,7 @@ public class Dropdown implements ItemListener {
     // BELOW IS TEST OF DROPDOWN CLASS
 
     Dropdown test = new Dropdown(choicesTest, panel);
-    Dropdown test2 = new Dropdown(choicesTest, panel, 20, 10);
+    Dropdown test2 = new Dropdown(choicesTest, panel, 500, 100);
 
     test2.addDropdown();
     
