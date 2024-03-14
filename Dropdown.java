@@ -27,7 +27,16 @@ public class Dropdown implements ItemListener {
     /**
      * The alignment of the dropdown.
      */
-    private final float alignment = Component.CENTER_ALIGNMENT;
+    private float alignment = Component.CENTER_ALIGNMENT;
+
+    /**
+     * Location x coordinate
+     */
+    private int xCoord;
+    /**
+     * Location y coordinate
+     */
+    private int yCoord;
 
     /**
      * This is the ItemListener that will state where you are within the dropdown.
@@ -54,11 +63,13 @@ public class Dropdown implements ItemListener {
      * @param list A string list of each choice in the dropdown.
      * @see data_dropDown
      */
-    public Dropdown(String[] list, JPanel panel, int width, int height) {
+    public Dropdown(String[] list, JPanel panel, int width, int height, int xCoord, int yCoord) {
         choices = list;
         data_dropDown = new JComboBox<String>(choices);
         this.width = width;
         this.height = height;
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
         createDropdownWidthHeight();
         jpanel = panel;
     }
@@ -76,7 +87,8 @@ public class Dropdown implements ItemListener {
     private void createDropdownWidthHeight() {
         data_dropDown.setPreferredSize(new Dimension(width,height));
         data_dropDown.setMaximumSize(data_dropDown.getPreferredSize());
-        data_dropDown.setAlignmentX(alignment);
+        // data_dropDown.setAlignmentX(alignment);
+        data_dropDown.setLocation(xCoord, yCoord);
         data_dropDown.setVisible(true);
         data_dropDown.addItemListener(listener);
     }
@@ -106,16 +118,18 @@ public class Dropdown implements ItemListener {
     JFrame frame = new JFrame("A Simple GUI");
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(1000, 1000);
+    frame.setSize(1920, 1080);
     frame.setLocation(430, 100);
 
     JPanel panel = new JPanel();
 
     frame.add(panel);
-    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    // panel.setLayout(new FlowLayout());
+    panel.setLayout(null);
 
     JLabel lbl = new JLabel("Select one of the possible choices and click OK");
-    lbl.setAlignmentX(Component.CENTER_ALIGNMENT);
+    // lbl.setAlignmentX(Component.CENTER_ALIGNMENT);
+    lbl.setBounds(300, 0, 200, 100);
     lbl.setVisible(true);
 
     panel.add(lbl);
@@ -130,7 +144,7 @@ public class Dropdown implements ItemListener {
     // BELOW IS TEST OF DROPDOWN CLASS
 
     Dropdown test = new Dropdown(choicesTest, panel);
-    Dropdown test2 = new Dropdown(choicesTest, panel, 500, 100);
+    Dropdown test2 = new Dropdown(choicesTest, panel, 500, 100, 50, 50);
 
     test2.addDropdown();
     
@@ -138,7 +152,9 @@ public class Dropdown implements ItemListener {
     // END TEST
 
     JButton btn = new JButton("OK");
-    btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+    // btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+    btn.setBounds(100, 100, 100, 50);
+
     panel.add(btn);
 
     }
