@@ -95,7 +95,7 @@ public class Nutrition {
             if(person.getGender() == Gender.FEMALE)
                 ret.setB6(1.5);
             else
-                ret.setB6(1.7)
+                ret.setB6(1.7);
         }
 
         ret.setB7(0.03);

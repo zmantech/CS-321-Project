@@ -160,7 +160,7 @@ public class Person {
      * @return  the calories the person needs to eat daily.
      */
     public double getCalories() {
-        return this.calories
+        return this.calories;
     }
 
     /**
