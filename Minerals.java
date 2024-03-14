@@ -4,7 +4,7 @@ public class Minerals {
      * Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium, etc.
      * New ones: Boron, Vanadium, Molybendium, Chromium, etc. Add more if found.
      */
-    private final String[] AllMinerals = {"calcium", "phosphorus", "potassium", "sodium", "chloride", "magnesium", "iron", "zinc", "iodine", "sulfur", "cobalt", "copper", 
+    private static final String[] AllMinerals = {"calcium", "phosphorus", "potassium", "sodium", "chloride", "magnesium", "iron", "zinc", "iodine", "sulfur", "cobalt", "copper", 
     "fluoride", "magnessium", "selenium", "boron", "vanadium", "molybendium", "chromium"};
 
     //Key pair for Mineral types and their assocaited measurment.
@@ -46,7 +46,7 @@ public class Minerals {
      * this method will all users to user the mineral string so they can use the same array as this classes hashmap.
      * @return  the string array that contains the names of types of minerals.
      */
-    public String[] getAllMineralStrings() {
-        return this.AllMinerals;
+    public static String[] getAllMineralStrings() {
+        return AllMinerals;
     }
 }

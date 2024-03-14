@@ -112,10 +112,75 @@ public class Nutrition {
     /**
      * this class will get the list of Minerals a person should eat in a day.
      * @param person    the person to check their Minerals. *Placeholder to later replace with a structure.
-     * @return          the amount of Minerals in grams-micrograms they should eat per day.
+     * @return          the amount of Minerals in milligrams they should eat per day.
      */
     public static Minerals getMinerals(Person person) { //A double datatype structure(class or list) is needed for all 15+ essential minerals
         Minerals ret = new Minerals();
+        String[] minerals = Minerals.getAllMineralStrings();
+
+        if(person.getAge() <= 50) {
+            ret.setMineralValue(minerals[0], 1000);        //calcium
+
+            if(person.getGender() == Gender.FEMALE) {
+                ret.setMineralValue("chromium", 0.025);
+                ret.setMineralValue("iron", 18);
+            } else {//male
+                ret.setMineralValue("chromium", 0.035);
+                ret.setMineralValue("iron", 8);
+            }
+        } else {
+            ret.setMineralValue(minerals[0], 1200);        //calcium
+
+            if(person.getGender() == Gender.FEMALE) {
+                ret.setMineralValue("chromium", 0.02);
+            } else {//male
+                ret.setMineralValue("chromium", 0.03);
+            }
+            ret.setMineralValue("fluoride", 4);
+
+            ret.setMineralValue("iron", 8);
+        }
+
+        //chlroide
+        if(person.getAge() <= 50) {
+            ret.setMineralValue(minerals[4], 2300);
+        } else if(person.getAge() <= 70) {
+            ret.setMineralValue(minerals[4], 2000);
+        } else {
+            ret.setMineralValue(minerals[4], 1800);
+        }
+
+        ret.setMineralValue("copper", 0.9);
+
+        ret.setMineralValue("iodine", 0.15);
+
+        ret.setMineralValue("molybendium", 0.045);
+
+        ret.setMineralValue("phosphorus", 700);
+
+        ret.setMineralValue("selenium", 0.055);
+
+        ret.setMineralValue("sodium", 1500);
+
+        if(person.getAge() <= 30) {
+            if(person.getGender() == Gender.FEMALE) {
+                ret.setMineralValue("magnessium", 310);
+            } else {
+                ret.setMineralValue("magnessium", 400);
+            }
+        } else {
+            if(person.getGender() == Gender.FEMALE) {
+                ret.setMineralValue("magnessium", 320);
+            } else {
+                ret.setMineralValue("magnessium", 420);
+            }
+        }
+
+        if(person.getGender() == Gender.FEMALE) {
+            ret.setMineralValue("zinc", 8);
+        } else {
+            ret.setMineralValue("zinc", 11);
+        }
 
         return ret; //placeholder
     } //Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium
