@@ -5,7 +5,7 @@ public class Minerals {
      * New ones: Boron, Vanadium, Molybendium, Chromium, etc. Add more if found.
      */
     private static final String[] AllMinerals = {"calcium", "phosphorus", "potassium", "sodium", "chloride", "magnesium", "iron", "zinc", "iodine", "sulfur", "cobalt", "copper", 
-    "fluoride", "magnessium", "selenium", "boron", "vanadium", "molybendium", "chromium"};
+    "fluoride", "manganese", "selenium", "boron", "vanadium", "molybendium", "chromium"};
 
     //Key pair for Mineral types and their assocaited measurment.
     private Hashtable<String, Double> EssentialM;
