@@ -188,31 +188,40 @@ public class Nutrition {
     } //Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium
 
     /**
-     * this class will get the list of Minerals a person should eat in a day.
+     * gets the net calorie increase or decrease (remove the "/7" for week).
      * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
-     * @return          the amount of Minerals in milligrams they should eat per day.
+     * @return          current calorie adjusted size based on calorie consumption.
      */
-    public static double WeightLoss(Person person) {
-
-        return 0;
+    public static double WeightChange(Person person) {
+        return ((person.getCalories() - getCalories(person)) + CalorieMaintenance(person));
     }
 
     /**
-     * this class will get the list of Minerals a person should eat in a day.
+     * FEATURE: Determines the Weight loss by comparing consumption over base maintained calorie threshold
+     * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
+     * @return          true if weight was lost otherwise false meaning weight was gained
+     */
+    public static boolean WeightLoss(Person person) {
+        if(WeightChange(person) <= CalorieMaintenance(person)) return true; 
+        return false; 
+    }
+
+    /**
+     * FEATURE: will get the number of calories needed to maintain current weight.
      * @param person    persons data used to caluclate the apporximate amount of calories needed to maintain weight.
      * @return          the amount of calories needed to intake to keep your body weight in calories.
      */
     public static double CalorieMaintenance(Person person) {
-
-        return 0;
+        return (person.getWeight()*15)/7;
     }
 
     /**
-     * this class will recommend what Nutrients are required for MuscleGain(nothing for the nutrition side).
+     * FEATURE: will recommend what Nutrients are required for MuscleGain(nothing for the nutrition side).
      */
     public static void MuscleGain() {
         //placeholder for the string to print or modify to return a string with text
-        //text: what minerals and nutrients are needed to gain muscle weight when exercising. 
+        //text: what minerals and nutrients are needed to gain muscle weight when exercising.
+        //getVitamins and getMinerals can be used in place of this method. 
     }
     
 }

@@ -238,6 +238,14 @@ public class Person {
     }
 
     /**
+     * a setter for the persons calorie count.
+     * @param gender    the gender to set
+     */
+    public void setCalories(int calories) {
+        this.calories = calories;       
+    }
+
+    /**
      * a to string override method is how the person will be used to write to files.
      * @return the string of the person
      */
