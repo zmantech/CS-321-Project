@@ -188,11 +188,19 @@ public class Nutrition {
     } //Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium
 
 
+    public static double WeightLoss() {
 
+        return 0;
+    }
 
+    public static double CalorieMaintenance() {
 
+        return 0;
+    }
 
+    public static void MuscleGain() {
 
-
+        
+    }
     
 }
