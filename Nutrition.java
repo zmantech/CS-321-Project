@@ -40,7 +40,7 @@ public class Nutrition {
      * @return          the amount of carbohydrates in grams they should eat per day. 
      */
     public static float getCarbohydrates(Person person) {
-        return 0; //placeholder
+        return (float)(person.getWeight() * 0.5);
     }
 
     /**
@@ -49,7 +49,7 @@ public class Nutrition {
      * @return          the amount of Fat in grams they should eat per day.
      */
     public static float getFat(Person person) {
-        return 0; //placeholder
+        return (float)(person.getWeight() * 0.275);
     }
 
     /**
@@ -58,7 +58,7 @@ public class Nutrition {
      * @return          the amount of Fiber in grams they should eat per day.
      */
     public static float getFiber(Person person) {
-        return 0; //placeholder
+        return (float)(person.getWeight() * 0.02);
     }
 
     /**
@@ -222,6 +222,7 @@ public class Nutrition {
         //placeholder for the string to print or modify to return a string with text
         //text: what minerals and nutrients are needed to gain muscle weight when exercising.
         //getVitamins and getMinerals can be used in place of this method. 
+        // "Dietary reference intakes suggest that adults consume 45% to 65% of their total calories from carbohydrates, 20% to 35% from fat, and 10% to 35% from protein."
     }
     
 }
