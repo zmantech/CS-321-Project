@@ -199,10 +199,10 @@ public class Nutrition {
     /**
      * FEATURE: Determines the Weight loss by comparing consumption over base maintained calorie threshold
      * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
-     * @return          true if weight was lost otherwise false meaning weight was gained
+     * @return          true if weight was lost otherwise false meaning weight was gained(including net 0 changes)
      */
     public static boolean WeightLoss(Person person) {
-        if(WeightChange(person) <= CalorieMaintenance(person)) return true; 
+        if(WeightChange(person) < CalorieMaintenance(person)) return true; 
         return false; 
     }
 
