@@ -164,22 +164,24 @@ public class Nutrition {
 
         if(person.getAge() <= 30) {
             if(person.getGender() == Gender.FEMALE) {
-                ret.setMineralValue("magnessium", 310);
+                ret.setMineralValue("magnesium", 310);
             } else {
-                ret.setMineralValue("magnessium", 400);
+                ret.setMineralValue("magnesium", 400);
             }
         } else {
             if(person.getGender() == Gender.FEMALE) {
-                ret.setMineralValue("magnessium", 320);
+                ret.setMineralValue("magnesium", 320);
             } else {
-                ret.setMineralValue("magnessium", 420);
+                ret.setMineralValue("magnesium", 420);
             }
         }
 
         if(person.getGender() == Gender.FEMALE) {
             ret.setMineralValue("zinc", 8);
+            ret.setMineralValue("manganese", 1.8);
         } else {
             ret.setMineralValue("zinc", 11);
+            ret.setMineralValue("manganese", 2.3);
         }
 
         return ret; //placeholder
