@@ -188,7 +188,7 @@ public class Nutrition {
     } //Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium
 
     /**
-     * gets the net calorie increase or decrease (remove the "/7" for week).
+     * gets the net calorie increase or decrease for daily calorie changes.
      * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
      * @return          current calorie adjusted size based on calorie consumption.
      */
