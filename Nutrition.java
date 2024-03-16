@@ -212,7 +212,7 @@ public class Nutrition {
      */
     public static void MuscleGain() {
         //placeholder for the string to print or modify to return a string with text
-        //text: what minerals and nutrients are needed to gain muscle weight during exercise
+        //text: what minerals and nutrients are needed to gain muscle weight when exercising. 
     }
     
 }
