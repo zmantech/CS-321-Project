@@ -187,20 +187,32 @@ public class Nutrition {
         return ret; //placeholder
     } //Essential Minerals per the NCCIH standards: Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Iron, Zinc, Iodine, Sulfur, Cobalt, Copper, Fluoride, Magnessium, Selenium
 
-
-    public static double WeightLoss() {
+    /**
+     * this class will get the list of Minerals a person should eat in a day.
+     * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
+     * @return          the amount of Minerals in milligrams they should eat per day.
+     */
+    public static double WeightLoss(Person person) {
 
         return 0;
     }
 
-    public static double CalorieMaintenance() {
+    /**
+     * this class will get the list of Minerals a person should eat in a day.
+     * @param person    persons data used to caluclate the apporximate amount of calories needed to maintain weight.
+     * @return          the amount of calories needed to intake to keep your body weight in calories.
+     */
+    public static double CalorieMaintenance(Person person) {
 
         return 0;
     }
 
+    /**
+     * this class will recommend what Nutrients are required for MuscleGain(nothing for the nutrition side).
+     */
     public static void MuscleGain() {
-
-        
+        //placeholder for the string to print or modify to return a string with text
+        //text: what minerals and nutrients are needed to gain muscle weight during exercise
     }
     
 }
