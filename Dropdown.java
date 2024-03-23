@@ -2,7 +2,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class Dropdown implements ItemListener {
+public class Dropdown extends JComboBox<String>  {
 
     /**
      * The panel to put the dropdown.
@@ -22,7 +22,7 @@ public class Dropdown implements ItemListener {
     /**
      * This is the actual drop down item.
      */
-    public static JComboBox<String> data_dropDown;
+    public JComboBox<String> data_dropDown;
 
     /**
      * The alignment of the dropdown.
@@ -50,20 +50,19 @@ public class Dropdown implements ItemListener {
      * @param panel The JPanel this dropdown will be added to.
      * @see data_dropDown
      */
-    public Dropdown(String[] list, JPanel panel) {
+    public Dropdown(String[] list) {
         choices = list;
         data_dropDown = new JComboBox<String>(choices);
         width = 0;
         height = 0;
         createDropdown();
-        jpanel = panel;
     }
     /**
      * This is the constructor for the dropdown. This sets and creates the data_dropDown variable.
      * @param list A string list of each choice in the dropdown.
      * @see data_dropDown
      */
-    public Dropdown(String[] list, JPanel panel, int width, int height, int xCoord, int yCoord) {
+    public Dropdown(String[] list, int width, int height, int xCoord, int yCoord) {
         choices = list;
         data_dropDown = new JComboBox<String>(choices);
         this.width = width;
@@ -71,7 +70,6 @@ public class Dropdown implements ItemListener {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         createDropdownWidthHeight();
-        jpanel = panel;
     }
 
     /**
@@ -81,7 +79,7 @@ public class Dropdown implements ItemListener {
         data_dropDown.setMaximumSize(data_dropDown.getPreferredSize());
         data_dropDown.setAlignmentX(alignment);
         data_dropDown.setVisible(true);
-        data_dropDown.addItemListener(listener);
+        //data_dropDown.addItemListener(listener);
     }
 
     private void createDropdownWidthHeight() {
@@ -98,19 +96,25 @@ public class Dropdown implements ItemListener {
      * @see panel The JPanel this Dropdown is being added to.
      * @see javax.swing.JPanel.add
      */
-    public void addDropdown() {
+    public void addDropdown(JPanel panel) {
+        jpanel = panel;
         jpanel.add(data_dropDown);
+    }
+    /**
+     * Get the data_dropDown
+     * @return
+     */
+    public JComboBox<String> getData() {
+        return data_dropDown;
     }
 
     /**
-     * This code will need to be in the larger GUI class, as it will listen for all item events
+     * Gets the selected item from the dropdown and returns it as a string.
+     * @return The string from whichever spot the dropdown is on.
      */
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'itemStateChanged'");
+    public String getSelectedItem() {
+        return (String) data_dropDown.getSelectedItem();
     }
-
     
 
     public static void main(String[] args) {
@@ -143,11 +147,10 @@ public class Dropdown implements ItemListener {
 
     // BELOW IS TEST OF DROPDOWN CLASS
 
-    Dropdown test = new Dropdown(choicesTest, panel);
-    Dropdown test2 = new Dropdown(choicesTest, panel, 500, 100, 50, 50);
-
-    test2.addDropdown();
+    Dropdown test = new Dropdown(choicesTest);
+    Dropdown test2 = new Dropdown(choicesTest, 500, 100, 50, 50);
     
+    panel.add(test.getData());
 
     // END TEST
 

@@ -3,17 +3,19 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
-public class NutritionPanel extends JFrame {
+public class NutritionPanel extends JFrame implements ItemListener {
 
     /**
      * Master panel, layout will always be a Border Layout.
      */
-    public JPanel master;
+    public static JPanel master;
 
     /**
      * Below are all of the panels that fit in each section of the Border Layout, they correspond to where they will be by their name.
+     * centerM is a cardLayout.
      */
     public static JPanel centerM, topM, leftM, rightM, bottomM;
+
 
     /**
      * Constructor for the nutrition panel. This will essentially call all methods and create the panel to be put into the nutrition side.
@@ -23,10 +25,14 @@ public class NutritionPanel extends JFrame {
      * All sections can be added and changed as needed.
      */
     public NutritionPanel() {
+        
+
         master = new JPanel();
         master.setLayout(new BorderLayout());
-        centerM = new JPanel();
+        centerM = new JPanel(new CardLayout());
+        initializeCenter();
         topM = new JPanel();
+        initializeTop();
         leftM = new JPanel();
         rightM = new JPanel();
         bottomM = new JPanel();
@@ -36,6 +42,34 @@ public class NutritionPanel extends JFrame {
         master.add(bottomM, BorderLayout.SOUTH); 
         master.add(rightM, BorderLayout.EAST); 
         master.add(leftM, BorderLayout.WEST);
+    }
+    /**
+     * This will create the panels for the cardLayout centerM. This will be more specific later on.
+     */
+    public void initializeCenter() {
+        JPanel card1 = new JPanel();
+        card1.add(new JButton("Button 1"));
+        card1.add(new JButton("Button 2"));
+        card1.add(new JButton("Button 3"));
+        
+        JPanel card2 = new JPanel();
+        card2.add(new JTextField("TextField", 20));
+
+        JPanel card3 = new JPanel();
+        card3.add(new JLabel("Panel 3, maybe it finally works?"));
+
+        centerM.add(card1, "Panel 1");
+        centerM.add(card2, "Panel 2");
+        centerM.add(card3, "Panel 3");
+    }
+    public void initializeTop() {
+        String[] dList = {"Panel 1", "Panel 2", "Panel 3"};
+
+        Dropdown d = new Dropdown(dList);
+
+        d.getData().addItemListener(this);
+
+        topM.add(d.getData());
     }
 
     /**
@@ -119,21 +153,40 @@ public class NutritionPanel extends JFrame {
         }
     }
 
+    /**
+     * Change the center panel based upon a given panel name.
+     * @return
+     */
+
     public JPanel getMasterPanel() {
         return master;
     }
+    public JPanel getTopPanel() {
+        return topM;
+    }
 
-    public static void main(String[] args) {
+    /**
+     * Helps switch the "cards" for centerM.
+     * @param evt
+     */
+    public void itemStateChanged(ItemEvent evt) {
+        CardLayout cl = (CardLayout)(centerM.getLayout());
+        cl.show(centerM, (String)evt.getItem());
+    }
+
+    /**
+     * Used with main.
+     */
+    public static void createAndShowNutrition() {
         JFrame frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
-        frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        frame.setLocation(0, 0);
+        //frame.setSize(500, 500);
+        //frame.setLocation(0, 0);
 
         NutritionPanel nutrition = new NutritionPanel();
 
-        nutrition.setColor('C', Color.blue);
+        //nutrition.setColor('C', Color.blue);
         nutrition.setColor('T', Color.red);
         nutrition.setColor('L', Color.green);
         nutrition.setColor('R', Color.green);
@@ -145,6 +198,20 @@ public class NutritionPanel extends JFrame {
         nutrition.setDimension('B', frame.getWidth(), 150);
         
         frame.add(nutrition.getMasterPanel());
+
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(
+            new Runnable() {
+                public void run() {
+                    createAndShowNutrition();
+                }
+            }
+        );
+
     }
 
 }
