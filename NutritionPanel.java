@@ -192,10 +192,10 @@ public class NutritionPanel extends JFrame implements ItemListener {
         nutrition.setColor('R', Color.green);
         nutrition.setColor('B', Color.red);
 
-        nutrition.setDimension('T', frame.getWidth(), 150);
-        nutrition.setDimension('L', 200, frame.getHeight());
-        nutrition.setDimension('R', 200, frame.getHeight());
-        nutrition.setDimension('B', frame.getWidth(), 150);
+        nutrition.setDimension('T', frame.getWidth(), 100);
+        nutrition.setDimension('L', 150, frame.getHeight());
+        nutrition.setDimension('R', 150, frame.getHeight());
+        nutrition.setDimension('B', frame.getWidth(), 100);
         
         frame.add(nutrition.getMasterPanel());
 
