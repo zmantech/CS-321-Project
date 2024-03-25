@@ -1,9 +1,9 @@
 package GUI;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.*;
+// import java.awt.*;
+// import java.awt.event.*;
+// import javax.swing.*;
+// import java.util.*;
 /**
  * the class that starts and is the interface with the user and all other code.
  * this should be the only thing with main.
