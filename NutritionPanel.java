@@ -58,12 +58,12 @@ public class NutritionPanel extends JFrame implements ItemListener {
         JPanel card3 = new JPanel();
         card3.add(new JLabel("Panel 3, maybe it finally works?"));
 
-        centerM.add(card1, "Panel 1");
-        centerM.add(card2, "Panel 2");
-        centerM.add(card3, "Panel 3");
+        centerM.add(card1, "Maintaining Weight");
+        centerM.add(card2, "Gaining Weight");
+        centerM.add(card3, "Losing Weight");
     }
     public void initializeTop() {
-        String[] dList = {"Panel 1", "Panel 2", "Panel 3"};
+        String[] dList = {"Maintainging Weight", "Gaining Weight", "Losing Weight"};
 
         Dropdown d = new Dropdown(dList);
 
@@ -180,7 +180,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
     public static void createAndShowNutrition() {
         JFrame frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);
         //frame.setLocation(0, 0);
 
