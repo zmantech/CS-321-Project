@@ -28,6 +28,7 @@ public class GUI extends NutritionPanel {
      */
     public static void main(String[] args) {
         //create gui etc here
+        //meow
         createGUI();
     }
 }
