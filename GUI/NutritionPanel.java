@@ -1,9 +1,19 @@
+package GUI;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import GUI.StartMenu.MenuPanel;
+
 import java.util.*;
 
 public class NutritionPanel extends JFrame implements ItemListener {
+
+    /**
+     * Master frame.
+     */
+    public static JFrame frame;
 
     /**
      * Master panel, layout will always be a Border Layout.
@@ -63,13 +73,31 @@ public class NutritionPanel extends JFrame implements ItemListener {
         centerM.add(card3, "Losing Weight");
     }
     public void initializeTop() {
-        String[] dList = {"Maintainging Weight", "Gaining Weight", "Losing Weight"};
+        String[] dList = {"Maintaining Weight", "Gaining Weight", "Losing Weight"};
 
         Dropdown d = new Dropdown(dList);
 
         d.getData().addItemListener(this);
 
         topM.add(d.getData());
+
+        // Add button to go back.
+        JButton back = new JButton("Main menu");
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        frame.dispose();
+                        StartMenu.MenuPanel menu = new MenuPanel();
+                        menu.MenuPane();
+                    }
+                });
+            }
+        });
+
+        topM.add(back);
     }
 
     /**
@@ -178,7 +206,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
      * Used with main.
      */
     public static void createAndShowNutrition() {
-        JFrame frame = new JFrame("Testing out Nutrition Panel.");
+        frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);
