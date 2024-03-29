@@ -1,0 +1,3 @@
+enum Type {
+    INTERMEDIATE, MODERATE,ADVANCED
+}
