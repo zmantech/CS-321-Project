@@ -8,6 +8,8 @@ import GUI.StartMenu.MenuPanel;
 
 import java.util.*;
 
+import package.Nutrition;
+
 public class NutritionPanel extends JFrame implements ItemListener {
 
     /**
@@ -57,16 +59,29 @@ public class NutritionPanel extends JFrame implements ItemListener {
      * This will create the panels for the cardLayout centerM. This will be more specific later on.
      */
     public void initializeCenter() {
+        // Maintaining Weight
         JPanel card1 = new JPanel();
         card1.add(new JButton("Button 1"));
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
-        
+
+
+        // Gaining Weight
         JPanel card2 = new JPanel();
         card2.add(new JTextField("TextField", 20));
 
+        // Losing Weight
         JPanel card3 = new JPanel();
-        card3.add(new JLabel("Panel 3, maybe it finally works?"));
+        card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
+        JLabel title3 = new JLabel("Panel 3, maybe it finally works?\nBravo");
+        title3.setAlignmentX(CENTER_ALIGNMENT);
+        JLabel test = new JLabel("Test");
+        test.setAlignmentX(CENTER_ALIGNMENT);
+        card3.add(title3);
+        card3.add(test);
+
+        Minerals min = Nutrition.getMinerals(OnePerson.person); 
+
 
         centerM.add(card1, "Maintaining Weight");
         centerM.add(card2, "Gaining Weight");

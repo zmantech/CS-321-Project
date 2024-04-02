@@ -1,20 +1,10 @@
+package Nutrition;
+
+import People.*;
 /**
  * class will be called with weight etc other data needed and pass in BSA etc all methods should be static.
  */
 public class Nutrition {
-
-    /**
-     * this function gets the Basal Metabolic Rate (BMR) of the person who is passed in.
-     * @param person    the person to get the bmr of.
-     * @return          The bmr of the person.
-     */
-    public static float getCalories(Person person) {
-        if(person.getGender() == Gender.MALE) {
-            return (float)(66.0 + (6.23 * person.getWeight()) + (12.7 * person.getHeight()) - (6.8 * person.getAge()));
-        } else { //female
-            return (float)(655 + (4.35 * person.getWeight()) + (4.7 * person.getHeight()) - (4.7 * person.getAge()));
-        }
-    }
 
     /**
      * method returns the amount of water a person should drink per day in ounces.
@@ -193,7 +183,7 @@ public class Nutrition {
      * @return          current calorie adjusted size based on calorie consumption.
      */
     public static double WeightChange(Person person) {
-        return ((person.getCalories() - getCalories(person)) + CalorieMaintenance(person));
+        return ((person.getCalories() - person.getCalories()) + CalorieMaintenance(person));
     }
 
     /**
