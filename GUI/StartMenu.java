@@ -55,8 +55,19 @@ public class StartMenu {
             //buttons.add(fitness, gbc);
             //buttons.add(nutrition, gbc);
 
+            JButton CreateAPerson = new JButton("Create a Person");
+            JButton UploadPerson = new JButton("Upload a file");
+            
+            panel.add(Box.createRigidArea(new Dimension(0,20)), gbc);
+            panel.add(CreateAPerson, gbc);
+            panel.add(UploadPerson, gbc);
+
+            panel.add(Box.createRigidArea(new Dimension(0,20)), gbc);
             panel.add(fitness, gbc);
+            panel.add(Box.createRigidArea(new Dimension(0,20)), gbc);
             panel.add(nutrition, gbc);
+
+
 
             fitness.addActionListener(new ActionListener() {
                 @Override
@@ -74,6 +85,13 @@ public class StartMenu {
                             NutritionPanel.createAndShowNutrition();
                         }
                     }
+                );}
+            });
+
+            UploadPerson.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    
                 );}
             });
 
