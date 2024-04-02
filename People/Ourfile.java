@@ -1,3 +1,5 @@
+package People;
+
 import java.io.*;
 import java.util.*; 
 
@@ -208,7 +210,10 @@ public class Ourfile {
      * @param file      the file name to write to
      * @return true if the write was successful false otherwise
      */
-    public static boolean savePerson(Person person, String file) {
+    public static boolean savePerson(Person person) {
+        
+        String file = person.getFirstName() + person.getLastName() + person.getAge() + ".txt";
+
         try {
             FileWriter writer = new FileWriter(file);//creates writer
             writer.write(person.toString());//uses to string to put person info in file

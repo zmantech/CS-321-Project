@@ -1,3 +1,5 @@
+package People;
+
 /**
  * this class will hold all the data for a person in one place.
  */
@@ -61,6 +63,17 @@ public class Person {
         } else { //female
             this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
         }
+    }
+
+    public Person() {
+        this.firstName = "";
+        this.lastName = "";
+        this.age = 0;
+        this.weight = 0;
+        this.feet = 0;
+        this.inches = 0;
+        this.gender = Gender.MALE;
+        this.calories = 0;
     }
 
 
