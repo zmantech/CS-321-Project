@@ -56,7 +56,11 @@ public class Person {
         this.feet = feet;
         this.inches = inches;
         this.gender = gender;
-        this.calories = 0.0;
+        if(gender == Gender.MALE) {
+            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        } else { //female
+            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        }
     }
 
 
@@ -72,7 +76,11 @@ public class Person {
         this.feet = Ourfile.getFeet(file);
         this.inches = Ourfile.getInches(file);
         this.gender = Ourfile.getGender(file);
-        this.calories = 0.0;
+        if(gender == Gender.MALE) {
+            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        } else { //female
+            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        }
     }
 
     /**
