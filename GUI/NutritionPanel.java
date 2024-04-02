@@ -6,6 +6,9 @@ import javax.swing.*;
 
 import GUI.StartMenu.MenuPanel;
 
+import Nutrition.*;
+import People.*;
+
 import java.util.*;
 
 public class NutritionPanel extends JFrame implements ItemListener {
@@ -63,18 +66,48 @@ public class NutritionPanel extends JFrame implements ItemListener {
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
 
+        card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
 
         // Gaining Weight
         JPanel card2 = new JPanel();
-        card2.add(new JTextField("TextField", 20));
+        card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
 
         // Losing Weight
         JPanel card3 = new JPanel();
-        card3.add(new JLabel("Panel 3, maybe it finally works?"));
-
+        card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
+        addVitaminsMinerals(card3);
+        addVitaminsMinerals(card2);
+        addVitaminsMinerals(card1);
+        
         centerM.add(card1, "Maintaining Weight");
         centerM.add(card2, "Gaining Weight");
         centerM.add(card3, "Losing Weight");
+    }
+
+    private void addVitaminsMinerals(JPanel card) {
+
+        JLabel text = new JLabel("Minerals:");
+        text.setAlignmentX(CENTER_ALIGNMENT);
+        card.add(text);
+
+        String[] mins = Nutrition.getMinerals(OnePerson.person).toString().split("\n");
+        String[] vit = Nutrition.getVitamin(OnePerson.person).toString().split("\n");
+        
+        for(String str: mins) {
+            text = new JLabel(str);
+            text.setAlignmentX(CENTER_ALIGNMENT);
+            card.add(text);
+        }
+
+        text = new JLabel("Vitamins:");
+        text.setAlignmentX(CENTER_ALIGNMENT);
+        card.add(text);
+        
+        for(String str: vit) {
+            text = new JLabel(str);
+            text.setAlignmentX(CENTER_ALIGNMENT);
+            card.add(text);
+        }
     }
     public void initializeTop() {
         String[] dList = {"Maintaining Weight", "Gaining Weight", "Losing Weight"};
