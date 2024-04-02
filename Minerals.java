@@ -58,35 +58,35 @@ public class Minerals {
 
         String str = "";
 
-        str += "Calcium: " + EssentialM.get("calcium") + "milligrams\n";
+        str += "Calcium: " + EssentialM.get("calcium") + " milligrams\n";
 
-        str += "Chloride: " + EssentialM.get("chloride") + "grams\n";
+        str += "Chloride: " + EssentialM.get("chloride") + " grams\n";
 
-        str += "Chromium: " + EssentialM.get("chromium") + "micrograms\n";
+        str += "Chromium: " + EssentialM.get("chromium") + " micrograms\n";
 
-        str += "Copper: " + EssentialM.get("copper") + "micrograms\n";
+        str += "Copper: " + EssentialM.get("copper") + " micrograms\n";
 
-        str += "Fluoride: " + EssentialM.get("fluoride") + "milligrams\n";
+        str += "Fluoride: " + EssentialM.get("fluoride") + " milligrams\n";
 
-        str += "Iodine: " + EssentialM.get("iodine") + "micrograms\n";
+        str += "Iodine: " + EssentialM.get("iodine") + " micrograms\n";
 
-        str += "Iron: " + EssentialM.get("iron") + "milligrams\n";
+        str += "Iron: " + EssentialM.get("iron") + " milligrams\n";
 
-        str += "Magnesium: " + EssentialM.get("magnesium") + "milligrams\n";
+        str += "Magnesium: " + EssentialM.get("magnesium") + " milligrams\n";
 
-        str += "Manganese: " + EssentialM.get("manganese") + "milligrams\n";
+        str += "Manganese: " + EssentialM.get("manganese") + " milligrams\n";
 
-        str += "Molybdenum: " + EssentialM.get("molybendium") + "micrograms\n";
+        str += "Molybdenum: " + EssentialM.get("molybendium") + " micrograms\n";
 
-        str += "Phosphorus: " + EssentialM.get("phosphorus") + "milligrams\n";
+        str += "Phosphorus: " + EssentialM.get("phosphorus") + " milligrams\n";
 
-        str += "Potassium: " + EssentialM.get("potassium") + "milligrams\n";
+        str += "Potassium: " + EssentialM.get("potassium") + " milligrams\n";
 
-        str += "Selenium: " + EssentialM.get("selenium") + "micrograms\n";
+        str += "Selenium: " + EssentialM.get("selenium") + " micrograms\n";
 
-        str += "Sodium: " + EssentialM.get("sodium") + "milligrams\n";
+        str += "Sodium: " + EssentialM.get("sodium") + " milligrams\n";
 
-        str += "Zinc: " + EssentialM.get("zinc") + "milligrams\n";
+        str += "Zinc: " + EssentialM.get("zinc") + " milligrams\n";
 
         return str;
     }
