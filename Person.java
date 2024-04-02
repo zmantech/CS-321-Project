@@ -32,6 +32,10 @@ public class Person {
      */
     private Gender gender;
 
+    /**
+     * the calories of the person.
+     */
+    private double calories;
 
     /**
      * a constructor that builds off of all individual characteristics.
@@ -52,6 +56,11 @@ public class Person {
         this.feet = feet;
         this.inches = inches;
         this.gender = gender;
+        if(gender == Gender.MALE) {
+            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        } else { //female
+            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        }
     }
 
 
@@ -60,7 +69,18 @@ public class Person {
      * @param file this constructor will build a person object using a string that is the location of a file
      */
     public Person(String file) {
-        //TODO will call several methods in File "get[Attribute](File) and set that equal to that attributue"
+        this.firstName = Ourfile.getFirstName(file);
+        this.lastName = Ourfile.getLastName(file);
+        this.age = Ourfile.getAge(file);
+        this.weight = Ourfile.getWeight(file);
+        this.feet = Ourfile.getFeet(file);
+        this.inches = Ourfile.getInches(file);
+        this.gender = Ourfile.getGender(file);
+        if(gender == Gender.MALE) {
+            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        } else { //female
+            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        }
     }
 
     /**
@@ -144,6 +164,14 @@ public class Person {
     }
 
     /**
+     * a getter for this persons claories.
+     * @return  the calories the person needs to eat daily.
+     */
+    public double getCalories() {
+        return this.calories;
+    }
+
+    /**
      * a setter for the firstname.
      * @param firstName the first name to set
      */
@@ -218,17 +246,25 @@ public class Person {
     }
 
     /**
+     * a setter for the persons calorie count.
+     * @param gender    the gender to set
+     */
+    public void setCalories(int calories) {
+        this.calories = calories;       
+    }
+
+    /**
      * a to string override method is how the person will be used to write to files.
      * @return the string of the person
      */
     @Override
     public String toString() {
-        return "FIRST NAME: " + this.firstName + "\n" +
-                "LAST NAME: " + this.lastName + "\n" +
+        return "FIRST_NAME: " + this.firstName + "\n" +
+                "LAST_NAME: " + this.lastName + "\n" +
                 "AGE: " + this.age + "\n" +
                 "WEIGHT: " + this.weight + "\n" +
-                "HEIGHT FEET: " + this.feet + "\n" +
-                "HEIGHT INCHES: " + this.inches + "\n" +
+                "HEIGHT_FEET: " + this.feet + "\n" +
+                "HEIGHT_INCHES: " + this.inches + "\n" +
                 "GENDER: " + this.gender;
     }
     
