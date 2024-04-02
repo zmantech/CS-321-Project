@@ -1,3 +1,5 @@
+package Nutrition;
+
 /**
  * an object to hold all the vitamins a person should eat in a day to do their specific objective (lose gain weight).
  */

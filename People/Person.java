@@ -1,3 +1,5 @@
+package People;
+
 /**
  * this class will hold all the data for a person in one place.
  */

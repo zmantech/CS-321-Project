@@ -1,3 +1,5 @@
+package Nutrition;
+
 import java.util.Hashtable;
 public class Minerals {
     /**
