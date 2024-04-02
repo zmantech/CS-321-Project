@@ -303,4 +303,40 @@ public class Vitamin {
     public void setB12(double B12) {
         this.B12 = B12;
     }
+
+    /**
+     * a tostring method which returns all the vitamins of this object.
+     * @return a string which has every vitamin in this object in a list
+     */
+    public String toString() {
+
+        String str = "";
+        
+        str += "A: " + this.A + " micrograms\n";
+        
+        str += "C: " + this.C + " milligrams\n";
+        
+        str += "E: " + this.E + " milligrams\n";
+        
+        str += "K: " + this.K + " micrograms\n";
+        
+        str += "B1: " + this.B1 + " milligrams\n";
+        
+        str += "B2: " + this.B2 + " milligrams\n";
+        
+        str += "B3: " + this.B3 + " milligrams\n";
+
+        str += "B5: " + this.B5 + " milligrams\n";
+
+        str += "B6: " + this.B6 + " milligrams\n";
+
+        str += "B7: " + this.B7 + " micrograms\n";
+    
+        str += "B9: " + this.B9 + " micrograms\n";
+        
+        str += "B12: " + this.B12 + " micrograms\n";
+        
+        return str;
+
+    }
 }

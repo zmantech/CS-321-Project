@@ -63,6 +63,17 @@ public class Person {
         }
     }
 
+    public Person() {
+        this.firstName = "";
+        this.lastName = "";
+        this.age = 0;
+        this.weight = 0;
+        this.feet = 0;
+        this.inches = 0;
+        this.gender = Gender.MALE;
+        this.calories = 0;
+    }
+
 
     /**
      * a constructor that builds off a relative file.
