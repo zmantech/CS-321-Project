@@ -71,12 +71,12 @@ public class NutritionPanel extends JFrame implements ItemListener {
         // Gaining Weight
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
+        addTextToCard(card2, "Calories to Gain Weight: ");
 
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-
-
+        addTextToCard(card2, "Calories to Lose Weight: ");
 
         addVitaminsMinerals(card3);
         addVitaminsMinerals(card2);
