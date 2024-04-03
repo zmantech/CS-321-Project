@@ -67,7 +67,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
         card1.add(new JButton("Button 3"));
 
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-
+        addTextToCard(card1, "Calories to Maintain Weight: " + Nutrition.CalorieMaintenance(OnePerson.person));
         // Gaining Weight
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
@@ -75,6 +75,9 @@ public class NutritionPanel extends JFrame implements ItemListener {
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
+
+
+
         addVitaminsMinerals(card3);
         addVitaminsMinerals(card2);
         addVitaminsMinerals(card1);
@@ -83,30 +86,32 @@ public class NutritionPanel extends JFrame implements ItemListener {
         centerM.add(card2, "Gaining Weight");
         centerM.add(card3, "Losing Weight");
     }
+    /**
+     * this method will add the string text to the card and make it center alligned.
+     * @param card  the card you wish to add the text to.
+     * @param text  the string to add to the card.
+     */
+    private void addTextToCard(JPanel card, String text) {
+        JLabel lab = new  JLabel(text);
+        lab.setAlignmentX(CENTER_ALIGNMENT);
+        card.add(lab);
+    }
 
     private void addVitaminsMinerals(JPanel card) {
 
-        JLabel text = new JLabel("Minerals:");
-        text.setAlignmentX(CENTER_ALIGNMENT);
-        card.add(text);
+        addTextToCard(card, "Minerals:");
 
         String[] mins = Nutrition.getMinerals(OnePerson.person).toString().split("\n");
         String[] vit = Nutrition.getVitamin(OnePerson.person).toString().split("\n");
         
         for(String str: mins) {
-            text = new JLabel(str);
-            text.setAlignmentX(CENTER_ALIGNMENT);
-            card.add(text);
+            addTextToCard(card, str);
         }
 
-        text = new JLabel("Vitamins:");
-        text.setAlignmentX(CENTER_ALIGNMENT);
-        card.add(text);
+        addTextToCard(card, "Vitamins:");
         
         for(String str: vit) {
-            text = new JLabel(str);
-            text.setAlignmentX(CENTER_ALIGNMENT);
-            card.add(text);
+            addTextToCard(card, str);
         }
     }
     public void initializeTop() {
