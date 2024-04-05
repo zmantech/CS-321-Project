@@ -8,8 +8,8 @@ public class Nutrition {
      * @param person    the person to check how much water they should drink.
      * @return          the amount of water in ounces person should drink per day.
      */
-    public static float getWater(Person person) {
-        return (float) .5 * person.getWeight();
+    public static double getWater(Person person) {
+        return (double) .5 * person.getWeight();
     }
 
     /**
@@ -17,8 +17,8 @@ public class Nutrition {
      * @param person    the person to check their protein.
      * @return          the amount of protein in grams they should eat per day.
      */
-    public static float getProtein(Person person) {
-        return (float)(person.getWeight() * 0.36);
+    public static double getProtein(Person person) {
+        return (double)(person.getWeight() * 0.36);
     }
 
     /**
@@ -26,8 +26,8 @@ public class Nutrition {
      * @param person    the person to check their carbohydrates.
      * @return          the amount of carbohydrates in grams they should eat per day. 
      */
-    public static float getCarbohydrates(Person person) {
-        return (float)(person.getWeight() * 0.5);
+    public static double getCarbohydrates(Person person) {
+        return (double)(person.getWeight() * 0.5);
     }
 
     /**
@@ -35,8 +35,8 @@ public class Nutrition {
      * @param person    the person to check their Fat.
      * @return          the amount of Fat in grams they should eat per day.
      */
-    public static float getFat(Person person) {
-        return (float)(person.getWeight() * 0.275);
+    public static double getFat(Person person) {
+        return (double)(person.getWeight() * 0.275);
     }
 
     /**
@@ -44,8 +44,8 @@ public class Nutrition {
      * @param person    the person to check their Fiber.
      * @return          the amount of Fiber in grams they should eat per day.
      */
-    public static float getFiber(Person person) {
-        return (float)(person.getWeight() * 0.02);
+    public static double getFiber(Person person) {
+        return (double)(person.getWeight() * 0.02);
     }
 
     /**
