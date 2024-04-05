@@ -75,7 +75,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-        addTextToCard(card2, "Calories to Lose Weight: ");
+        addTextToCard(card3, "Calories to Lose Weight: " + String.Format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person) - 500));
 
         addVitaminsMinerals(card3);
         addVitaminsMinerals(card2);
@@ -96,8 +96,21 @@ public class NutritionPanel extends JFrame implements ItemListener {
         card.add(lab);
     }
 
+    /**
+     * this method will run through Onepersons vitamins and minerals and add them as
+     * @param card the card to add text to
+     */
     private void addVitaminsMinerals(JPanel card) {
+        addTextToCard(card, "");
+        addTextToCard(card, "Macronutrients");
 
+        addTextToCard(card, "You should drink " + String.format("%.2f",Nutrition.getWater(OnePerson.person)) + " ounces of water per day");
+        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getCarbohydrates(OnePerson.person)) + " grams of carbohydrates per day");
+        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getFat(OnePerson.person)) + " grams of fat per day");
+        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getFiber(OnePerson.person)) + " grams of fiber per day");
+        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getProtein(OnePerson.person)) + " grams of protein per day");
+
+        addTextToCard(card, "");
         addTextToCard(card, "Minerals:");
 
         String[] mins = Nutrition.getMinerals(OnePerson.person).toString().split("\n");
@@ -107,6 +120,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
             addTextToCard(card, str);
         }
 
+        addTextToCard(card, "");
         addTextToCard(card, "Vitamins:");
         
         for(String str: vit) {
