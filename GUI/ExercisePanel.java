@@ -68,18 +68,24 @@ public class ExercisePanel extends JFrame implements ItemListener {
         */
 
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        //addTextToCard(card1, "Calories to Maintain Weight: " + String.Format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person)));
-        // Gaining Weight
+        card1.add(new JButton("Basketball"));
+        card1.add(new JButton("Baseball"));
+        card1.add(new JButton("Football/Soccer"));
+        card1.add(new JButton("American Football"));
+        card1.add(new JButton("Ice Hockey"));
+        card1.add(new JButton("Volleyball"));
+        card1.add(new JButton("Tennis"));
+        card1.add(new JButton("MMA"));
+
+
+        
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
-        //addTextToCard(card2, "Calories to Gain Weight: " + String.Format("%.2f", Nutrition.CalorieMaintenance(OnePerson.person) + 500));
-
+   
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-        //addTextToCard(card3, "Calories to Lose Weight: " + String.Format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person) - 500));
-
-        
+    
         centerM.add(card1, "Sports");
         centerM.add(card2, "Weight Lifting");
         centerM.add(card3, "Cardio");
