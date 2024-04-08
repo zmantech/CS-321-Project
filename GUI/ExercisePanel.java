@@ -80,9 +80,9 @@ public class ExercisePanel extends JFrame implements ItemListener {
         //addTextToCard(card3, "Calories to Lose Weight: " + String.Format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person) - 500));
 
         
-        centerM.add(card1, "Exercise 1");
-        centerM.add(card2, "Exercise 2");
-        centerM.add(card3, "Exercise 3");
+        centerM.add(card1, "Sports");
+        centerM.add(card2, "Weight Lifting");
+        centerM.add(card3, "Cardio");
     }
     /**
      * this method will add the string text to the card and make it center alligned.
