@@ -11,7 +11,7 @@ import GUI.StartMenu.MenuPanel;
 
 import java.util.*;
 
-public class ExercisePanel extends JFrame implements ItemListener {
+public class SportsPanel extends JFrame implements ItemListener {
     /**
      * Master frame.
      */
@@ -36,7 +36,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
      * Finally, there will be added capability to swap between this panel and the intro panel.
      * All sections can be added and changed as needed.
      */
-    public ExercisePanel() {
+    public SportsPanel() {
         
 
         master = new JPanel();
@@ -67,33 +67,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
         */
-
-        card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        JButton exercise = new JButton("Basketball");
-        exercise.setAlignmentX(CENTER_ALIGNMENT);
-        card1.add(exercise);
-        exercise = new JButton("Baseball");
-        card1.add(exercise);
-        //card1.add(new JButton("Baseball"));
-        card1.add(new JButton("Football/Soccer"));
-        card1.add(new JButton("American Football"));
-        card1.add(new JButton("Ice Hockey"));
-        card1.add(new JButton("Volleyball"));
-        card1.add(new JButton("Tennis"));
-        card1.add(new JButton("MMA"));
-
-
-        
-        JPanel card2 = new JPanel();
-        card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
-   
-        // Losing Weight
-        JPanel card3 = new JPanel();
-        card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-    
-        centerM.add(card1, "Sports");
-        centerM.add(card2, "Weight Lifting");
-        centerM.add(card3, "Cardio");
+        addTextToCard(card1, "Test");
     }
     /**
      * this method will add the string text to the card and make it center alligned.
@@ -106,7 +80,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
         card.add(lab);
     }
 
-    public void initializeTop() {
+    public void initializeTop(int sport) {
         String[] dList = {"Sports", "Weight Lifting", "Cardio"};
 
         Dropdown d = new Dropdown(dList);
