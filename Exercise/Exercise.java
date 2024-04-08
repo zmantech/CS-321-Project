@@ -1,3 +1,4 @@
+package Exercise;
 /**
  * the exercise class to find out what exercises people should do to develop a certain muscle.
  */
