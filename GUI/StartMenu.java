@@ -72,8 +72,13 @@ public class StartMenu {
             fitness.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
-                }
+                    frame.dispose();
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            ExercisePanel.createAndShowExercise();
+                        }
+                    }
+                );}
             });
 
             nutrition.addActionListener(new ActionListener() {
@@ -87,13 +92,13 @@ public class StartMenu {
                     }
                 );}
             });
-
+            /*
             UploadPerson.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     
                 );}
-            });
+            });*/
 
             gbc.weighty = 1;
             //add(buttons, gbc);
