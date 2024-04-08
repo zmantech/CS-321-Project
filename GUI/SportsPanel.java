@@ -1,7 +1,5 @@
 package GUI;
 
-import Nutrition.*;
-import People.*;
 import Exercise.Exercise;
 
 import java.awt.*;
