@@ -63,18 +63,23 @@ public class SportsPanel extends JFrame implements ItemListener {
         
         //means it is a sport and should call sports methods
         if(exercise >= 0 && exercise <= 7) {
+            addTextToCard(card1, "Overview:");
+            String[] strings = Exercise.SportsOverview(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            
             addTextToCard(card1, "Beginner:");
-            String[] strings = Exercise.SportsBeginner(exercise).split(",");
+            strings = Exercise.SportsBeginner(exercise).split("\n");
             for(String str: strings)
                 addTextToCard(card1, str);
 
             addTextToCard(card1, "Intermediate:");
-            strings = Exercise.SportsIntermediate(exercise).split(",");
+            strings = Exercise.SportsIntermediate(exercise).split("\n");
             for(String str: strings)
                 addTextToCard(card1, str);
 
             addTextToCard(card1, "Advanced:");
-            strings = Exercise.SportsAdvanced(exercise).split(",");
+            strings = Exercise.SportsAdvanced(exercise).split("\n");
             for(String str: strings)
                 addTextToCard(card1, str);
         }
