@@ -73,34 +73,129 @@ public class ExercisePanel extends JFrame implements ItemListener {
         basketball.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(basketball);
 
+        basketball.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(0);
+                    }
+                }
+            );}
+        });
+
         JButton baseball = new JButton("Baseball");
         baseball.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(baseball);
+
+        baseball.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(1);
+                    }
+                }
+            );}
+        });
         
         JButton soccer = new JButton("Football/Soccer");
         soccer.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(soccer);
 
+        soccer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(2);
+                    }
+                }
+            );}
+        });
+
         JButton football = new JButton("American Football");
         football.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(football);
+
+        football.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(3);
+                    }
+                }
+            );}
+        });
 
         JButton hockey = new JButton("Ice Hockey");
         hockey.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(hockey);
 
+        hockey.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(4);
+                    }
+                }
+            );}
+        });
+
         JButton volleyball = new JButton("Volleyball");
         volleyball.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(volleyball);
+
+        volleyball.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(5);
+                    }
+                }
+            );}
+        });
 
         JButton tennis = new JButton("Tennis");
         tennis.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(tennis);
 
+        tennis.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(6);
+                    }
+                }
+            );}
+        });
+
         JButton mma = new JButton("MMA");
         mma.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(mma);
 
+        mma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(7);
+                    }
+                }
+            );}
+        });
         
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
