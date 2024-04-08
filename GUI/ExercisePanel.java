@@ -69,19 +69,37 @@ public class ExercisePanel extends JFrame implements ItemListener {
         */
 
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        JButton exercise = new JButton("Basketball");
-        exercise.setAlignmentX(CENTER_ALIGNMENT);
-        card1.add(exercise);
-        exercise = new JButton("Baseball");
-        card1.add(exercise);
-        //card1.add(new JButton("Baseball"));
-        card1.add(new JButton("Football/Soccer"));
-        card1.add(new JButton("American Football"));
-        card1.add(new JButton("Ice Hockey"));
-        card1.add(new JButton("Volleyball"));
-        card1.add(new JButton("Tennis"));
-        card1.add(new JButton("MMA"));
+        JButton basketball = new JButton("Basketball");
+        basketball.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(basketball);
 
+        JButton baseball = new JButton("Baseball");
+        baseball.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(baseball);
+        
+        JButton soccer = new JButton("Football/Soccer");
+        soccer.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(soccer);
+
+        JButton football = new JButton("American Football");
+        football.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(football);
+
+        JButton hockey = new JButton("Ice Hockey");
+        hockey.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(hockey);
+
+        JButton volleyball = new JButton("Volleyball");
+        volleyball.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(volleyball);
+
+        JButton tennis = new JButton("Tennis");
+        tennis.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(tennis);
+
+        JButton mma = new JButton("MMA");
+        mma.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(mma);
 
         
         JPanel card2 = new JPanel();
