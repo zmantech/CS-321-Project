@@ -262,7 +262,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
      * Used with main.
      */
     public static void createAndShowNutrition() {
-        frame = new JFrame("Testing out Nutrition Panel.");
+        frame = new JFrame("Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);

@@ -62,11 +62,7 @@ public class SportsPanel extends JFrame implements ItemListener {
         // Maintaining Weight
         JPanel card1 = new JPanel();
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        /*
-        card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-        */
+        
         //means it is a sport and should call sports methods
         if(exercise >= 0 && exercise <= 7) {
             addTextToCard(card1, "Beginner:");
@@ -97,13 +93,6 @@ public class SportsPanel extends JFrame implements ItemListener {
     }
 
     public void initializeTop() {
-        //String[] dList = {"Sports", "Weight Lifting", "Cardio"};
-
-        //Dropdown d = new Dropdown(dList);
-
-        //d.getData().addItemListener(this);
-
-        //topM.add(d.getData());
 
         // Add button to go back.
         JButton back = new JButton("Main menu");
@@ -230,7 +219,7 @@ public class SportsPanel extends JFrame implements ItemListener {
      * Used with main.
      */
     public static void createAndShowExercise() {
-        frame = new JFrame("Testing out Nutrition Panel.");
+        frame = new JFrame("How to play.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);

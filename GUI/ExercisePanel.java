@@ -353,7 +353,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
      * Used with main.
      */
     public static void createAndShowExercise() {
-        frame = new JFrame("Testing out Nutrition Panel.");
+        frame = new JFrame("Sports Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);
