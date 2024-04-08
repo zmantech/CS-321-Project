@@ -58,7 +58,7 @@ public class SportsPanel extends JFrame implements ItemListener {
     /**
      * This will create the panels for the cardLayout centerM. This will be more specific later on.
      */
-    public void initializeCenter(int sport) {
+    public void initializeCenter(int exercise) {
         // Maintaining Weight
         JPanel card1 = new JPanel();
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
@@ -67,8 +67,23 @@ public class SportsPanel extends JFrame implements ItemListener {
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
         */
-        addTextToCard(card1, "Beginner");
-        String[] strings = Exercise.SportsBeginner(sport).split(",");
+        //means it is a sport and should call sports methods
+        if(exercise >= 0 && exercise <= 7) {
+            addTextToCard(card1, "Beginner:");
+            String[] strings = Exercise.SportsBeginner(exercise).split(",");
+            for(String str: strings)
+                addTextToCard(card1, str);
+
+            addTextToCard(card1, "Intermediate:");
+            strings = Exercise.SportsIntermediate(exercise).split(",");
+            for(String str: strings)
+                addTextToCard(card1, str);
+
+            addTextToCard(card1, "Advanced:");
+            strings = Exercise.SportsAdvanced(exercise).split(",");
+            for(String str: strings)
+                addTextToCard(card1, str);
+        }
     }
     /**
      * this method will add the string text to the card and make it center alligned.
