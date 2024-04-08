@@ -57,6 +57,7 @@ public class StartMenu {
 
             JButton CreateAPerson = new JButton("Create a Person");
             JButton UploadPerson = new JButton("Upload a file");
+            JButton CloseButton = new JButton("Close the Program");
             
             panel.add(Box.createRigidArea(new Dimension(0,20)), gbc);
             panel.add(CreateAPerson, gbc);
@@ -66,6 +67,8 @@ public class StartMenu {
             panel.add(fitness, gbc);
             panel.add(Box.createRigidArea(new Dimension(0,20)), gbc);
             panel.add(nutrition, gbc);
+            panel.add(Box.createRigidArea(new Dimension(0,20)), gbc);
+            panel.add(CloseButton, gbc);
 
 
 
@@ -99,6 +102,13 @@ public class StartMenu {
                     
                 );}
             });*/
+
+            CloseButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);  
+                }
+            });
 
             gbc.weighty = 1;
             //add(buttons, gbc);
