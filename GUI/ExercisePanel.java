@@ -6,12 +6,12 @@ import People.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.*;
 
 import GUI.StartMenu.MenuPanel;
 
-public class NutritionPanel extends JFrame implements ItemListener {
+import java.util.*;
 
+public class ExercisePanel extends JFrame implements ItemListener {
     /**
      * Master frame.
      */
@@ -30,13 +30,13 @@ public class NutritionPanel extends JFrame implements ItemListener {
 
 
     /**
-     * Constructor for the nutrition panel. This will essentially call all methods and create the panel to be put into the nutrition side.
+     * Constructor for the Exercise panel. This will essentially call all methods and create the panel to be put into the nutrition side.
      * There will be a larger outside panel with the Border Layout.
      * Each section of the Border layout will have a panel based on what information should go there.
      * Finally, there will be added capability to swap between this panel and the intro panel.
      * All sections can be added and changed as needed.
      */
-    public NutritionPanel() {
+    public ExercisePanel() {
         
 
         master = new JPanel();
@@ -61,29 +61,152 @@ public class NutritionPanel extends JFrame implements ItemListener {
     public void initializeCenter() {
         // Maintaining Weight
         JPanel card1 = new JPanel();
-        /*card1.add(new JButton("Button 1"));
+        
+        /*
+        card1.add(new JButton("Button 1"));
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
         */
+
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        addTextToCard(card1, "Calories to Maintain Weight: " + String.format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person)));
-        // Gaining Weight
+        JButton basketball = new JButton("Basketball");
+        basketball.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(basketball);
+
+        basketball.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(0);
+                    }
+                }
+            );}
+        });
+
+        JButton baseball = new JButton("Baseball");
+        baseball.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(baseball);
+
+        baseball.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(1);
+                    }
+                }
+            );}
+        });
+        
+        JButton soccer = new JButton("Football/Soccer");
+        soccer.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(soccer);
+
+        soccer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(2);
+                    }
+                }
+            );}
+        });
+
+        JButton football = new JButton("American Football");
+        football.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(football);
+
+        football.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(3);
+                    }
+                }
+            );}
+        });
+
+        JButton hockey = new JButton("Ice Hockey");
+        hockey.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(hockey);
+
+        hockey.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(4);
+                    }
+                }
+            );}
+        });
+
+        JButton volleyball = new JButton("Volleyball");
+        volleyball.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(volleyball);
+
+        volleyball.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(5);
+                    }
+                }
+            );}
+        });
+
+        JButton tennis = new JButton("Tennis");
+        tennis.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(tennis);
+
+        tennis.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(6);
+                    }
+                }
+            );}
+        });
+
+        JButton mma = new JButton("MMA");
+        mma.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(mma);
+
+        mma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowExercise(7);
+                    }
+                }
+            );}
+        });
+        
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
-        addTextToCard(card2, "Calories to Gain Weight: " + String.format("%.2f", Nutrition.CalorieMaintenance(OnePerson.person) + 500));
-
+   
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-        addTextToCard(card3, "Calories to Lose Weight: " + String.format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person) - 500));
-
-        addVitaminsMinerals(card3);
-        addVitaminsMinerals(card2);
-        addVitaminsMinerals(card1);
-        
-        centerM.add(card1, "Maintaining Weight");
-        centerM.add(card2, "Gaining Weight");
-        centerM.add(card3, "Losing Weight");
+    
+        centerM.add(card1, "Sports");
+        centerM.add(card2, "Weight Lifting");
+        centerM.add(card3, "Cardio");
     }
     /**
      * this method will add the string text to the card and make it center alligned.
@@ -96,40 +219,8 @@ public class NutritionPanel extends JFrame implements ItemListener {
         card.add(lab);
     }
 
-    /**
-     * this method will run through Onepersons vitamins and minerals and add them as
-     * @param card the card to add text to
-     */
-    private void addVitaminsMinerals(JPanel card) {
-        addTextToCard(card, "");
-        addTextToCard(card, "Macronutrients");
-
-        addTextToCard(card, "You should drink " + String.format("%.2f",Nutrition.getWater(OnePerson.person)) + " ounces of water per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getCarbohydrates(OnePerson.person)) + " grams of carbohydrates per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getFat(OnePerson.person)) + " grams of fat per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getFiber(OnePerson.person)) + " grams of fiber per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getProtein(OnePerson.person)) + " grams of protein per day");
-
-        addTextToCard(card, "");
-        addTextToCard(card, "Minerals:");
-
-        String[] mins = Nutrition.getMinerals(OnePerson.person).toString().split("\n");
-        String[] vit = Nutrition.getVitamin(OnePerson.person).toString().split("\n");
-        
-        for(String str: mins) {
-            addTextToCard(card, str);
-        }
-
-        addTextToCard(card, "");
-        addTextToCard(card, "Vitamins:");
-        
-        for(String str: vit) {
-            addTextToCard(card, str);
-        }
-    }
-
     public void initializeTop() {
-        String[] dList = {"Maintaining Weight", "Gaining Weight", "Losing Weight"};
+        String[] dList = {"Sports", "Weight Lifting", "Cardio"};
 
         Dropdown d = new Dropdown(dList);
 
@@ -261,19 +352,19 @@ public class NutritionPanel extends JFrame implements ItemListener {
     /**
      * Used with main.
      */
-    public static void createAndShowNutrition() {
+    public static void createAndShowExercise() {
         frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);
         //frame.setLocation(0, 0);
 
-        NutritionPanel nutrition = new NutritionPanel();
+        ExercisePanel nutrition = new ExercisePanel();
 
         //nutrition.setColor('C', Color.blue);
         nutrition.setColor('T', Color.red);
-        nutrition.setColor('L', Color.green);
-        nutrition.setColor('R', Color.green);
+        nutrition.setColor('L', Color.blue);
+        nutrition.setColor('R', Color.blue);
         nutrition.setColor('B', Color.red);
 
         nutrition.setDimension('T', frame.getWidth(), 100);
@@ -291,11 +382,10 @@ public class NutritionPanel extends JFrame implements ItemListener {
         SwingUtilities.invokeLater(
             new Runnable() {
                 public void run() {
-                    createAndShowNutrition();
+                    createAndShowExercise();
                 }
             }
         );
 
     }
-
 }
