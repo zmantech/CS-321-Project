@@ -61,14 +61,9 @@ public class ExercisePanel extends JFrame implements ItemListener {
     public void initializeCenter() {
         // Maintaining Weight
         JPanel card1 = new JPanel();
-        
-        /*
-        card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-        */
 
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
+        
         JButton basketball = new JButton("Basketball");
         basketball.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(basketball);
@@ -207,16 +202,6 @@ public class ExercisePanel extends JFrame implements ItemListener {
         centerM.add(card1, "Sports");
         centerM.add(card2, "Weight Lifting");
         centerM.add(card3, "Cardio");
-    }
-    /**
-     * this method will add the string text to the card and make it center alligned.
-     * @param card  the card you wish to add the text to.
-     * @param text  the string to add to the card.
-     */
-    private void addTextToCard(JPanel card, String text) {
-        JLabel lab = new  JLabel(text);
-        lab.setAlignmentX(CENTER_ALIGNMENT);
-        card.add(lab);
     }
 
     public void initializeTop() {

@@ -218,35 +218,6 @@ public class SportsPanel extends JFrame implements ItemListener {
     /**
      * Used with main.
      */
-    public static void createAndShowExercise() {
-        frame = new JFrame("How to play.");
-        //frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        //frame.setSize(500, 500);
-        //frame.setLocation(0, 0);
-
-        ExercisePanel nutrition = new ExercisePanel();
-
-        //nutrition.setColor('C', Color.blue);
-        nutrition.setColor('T', Color.red);
-        nutrition.setColor('L', Color.blue);
-        nutrition.setColor('R', Color.blue);
-        nutrition.setColor('B', Color.red);
-
-        nutrition.setDimension('T', frame.getWidth(), 100);
-        nutrition.setDimension('L', 150, frame.getHeight());
-        nutrition.setDimension('R', 150, frame.getHeight());
-        nutrition.setDimension('B', frame.getWidth(), 100);
-        
-        frame.add(nutrition.getMasterPanel());
-
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    /**
-     * Used with main.
-     */
     public static void createAndShowExercise(int sport) {
         frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
@@ -277,7 +248,7 @@ public class SportsPanel extends JFrame implements ItemListener {
         SwingUtilities.invokeLater(
             new Runnable() {
                 public void run() {
-                    createAndShowExercise();
+                    createAndShowExercise(1);
                 }
             }
         );
