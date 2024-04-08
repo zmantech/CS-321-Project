@@ -68,7 +68,9 @@ public class ExercisePanel extends JFrame implements ItemListener {
         */
 
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        card1.add(new JButton("Basketball"));
+        JButton exercise = new JButton("Basketball");
+        exercise.setAlignmentX(CENTER_ALIGNMENT);
+        card1.add(exercise);
         card1.add(new JButton("Baseball"));
         card1.add(new JButton("Football/Soccer"));
         card1.add(new JButton("American Football"));
