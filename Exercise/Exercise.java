@@ -4,6 +4,9 @@ package Exercise;
  */
 public class Exercise {
 
+    //READ: Each int method argument needs to be unique. All Periods before the last sentence must be NewLines.
+    //Used Ints: SomeSports[0-7].
+
     //list of some sports to print. no we arent going to list every sport in history.
     //Recommend using a loop to call GetSportDifficulty(SomeSports[i], int difficulty) for group dropdowns
     private static final String SomeSports[] = {"Basketball", "Baseball", "Football/Soccer", 
