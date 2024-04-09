@@ -211,10 +211,10 @@ public class Ourfile {
      * @return true if the write was successful false otherwise
      */
     public static boolean savePerson(Person person) {
-        
-        String file = "SavedPeople\\" + person.getFirstName() + person.getLastName() + person.getAge() + ".txt";
 
         try {
+            File file = new File("SavedPeople\\" + person.getFirstName() + person.getLastName() + person.getAge() + ".txt");
+            file.getParentFile().mkdirs();
             FileWriter writer = new FileWriter(file);//creates writer
             writer.write(person.toString());//uses to string to put person info in file
             writer.close();//closes the pointer
