@@ -5,6 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import People.OnePerson;
+
 import java.util.*;
 
 public class PersonCreatorPanel {
@@ -97,7 +99,13 @@ public class PersonCreatorPanel {
         frame.pack();
         frame.setVisible(true);
 
-        String fName = firstNameField.getText();
+        OnePerson.person.setFirstName(firstNameField.getText());
+        OnePerson.person.setLastName(lastNameField.getText());
+        OnePerson.person.setWeight( (int) Double.parseDouble(weightField.getText()));
+        OnePerson.person.setInches((int) Double.parseDouble(inchesField.getText()));
+        OnePerson.person.setFeet((int) Double.parseDouble(feetField.getText()));
+        OnePerson.person.setAge((int) Double.parseDouble(ageField.getText()));
+
         
     }
 
