@@ -67,16 +67,19 @@ public class SportsPanel extends JFrame implements ItemListener {
             String[] strings = Exercise.SportsOverview(exercise).split("\n");
             for(String str: strings)
                 addTextToCard(card1, str);
-            
+            addTextToCard(card1, "");
+
             addTextToCard(card1, "Beginner:");
             strings = Exercise.SportsBeginner(exercise).split("\n");
             for(String str: strings)
                 addTextToCard(card1, str);
+            addTextToCard(card1, "");
 
             addTextToCard(card1, "Intermediate:");
             strings = Exercise.SportsIntermediate(exercise).split("\n");
             for(String str: strings)
                 addTextToCard(card1, str);
+            addTextToCard(card1, "");
 
             addTextToCard(card1, "Advanced:");
             strings = Exercise.SportsAdvanced(exercise).split("\n");
@@ -101,7 +104,7 @@ public class SportsPanel extends JFrame implements ItemListener {
     public void initializeTop() {
 
         // Add button to go back.
-        JButton back = new JButton("Main menu");
+        JButton back = new JButton("Exercise");
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,8 +112,7 @@ public class SportsPanel extends JFrame implements ItemListener {
                     @Override
                     public void run() {
                         frame.dispose();
-                        StartMenu.MenuPanel menu = new MenuPanel();
-                        menu.MenuPane();
+                        ExercisePanel.createAndShowExercise();
                     }
                 });
             }
