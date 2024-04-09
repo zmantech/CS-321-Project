@@ -4,7 +4,7 @@ package Exercise;
  */
 public class Exercise {
 
-    //READ: Each int method argument needs to be unique. All Periods before the last sentence must be NewLines.
+    //READ: Each int method argument needs to be unique. Add NewLines every 10-ish words: '\n'.
     //Used Ints: SomeSports[0-7].
 
     //list of some sports to print. no we arent going to list every sport in history.
