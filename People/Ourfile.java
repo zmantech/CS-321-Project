@@ -212,7 +212,7 @@ public class Ourfile {
      */
     public static boolean savePerson(Person person) {
         
-        String file = "People\\" + person.getFirstName() + person.getLastName() + person.getAge() + ".txt";
+        String file = "SavedPeople\\" + person.getFirstName() + person.getLastName() + person.getAge() + ".txt";
 
         try {
             FileWriter writer = new FileWriter(file);//creates writer
