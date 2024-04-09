@@ -103,8 +103,20 @@ public class StartMenu {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     
-                );}
+                }
             });*/
+            
+            CreateAPerson.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame.dispose();
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            PersonCreatorPanel.createAndShowPersonCreator();
+                        }
+                    }
+                );}
+            });
 
             CloseButton.addActionListener(new ActionListener() {
                 @Override
