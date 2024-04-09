@@ -74,7 +74,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(0);
+                        SportsPanel.createAndShowSport(0);
                     }
                 }
             );}
@@ -90,7 +90,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(1);
+                        SportsPanel.createAndShowSport(1);
                     }
                 }
             );}
@@ -106,7 +106,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(2);
+                        SportsPanel.createAndShowSport(2);
                     }
                 }
             );}
@@ -122,7 +122,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(3);
+                        SportsPanel.createAndShowSport(3);
                     }
                 }
             );}
@@ -138,7 +138,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(4);
+                        SportsPanel.createAndShowSport(4);
                     }
                 }
             );}
@@ -154,7 +154,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(5);
+                        SportsPanel.createAndShowSport(5);
                     }
                 }
             );}
@@ -170,7 +170,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(6);
+                        SportsPanel.createAndShowSport(6);
                     }
                 }
             );}
@@ -186,7 +186,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(7);
+                        SportsPanel.createAndShowSport(7);
                     }
                 }
             );}

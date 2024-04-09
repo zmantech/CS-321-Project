@@ -83,6 +83,9 @@ public class SportsPanel extends JFrame implements ItemListener {
             for(String str: strings)
                 addTextToCard(card1, str);
         }
+
+        centerM = card1;
+
     }
     /**
      * this method will add the string text to the card and make it center alligned.
@@ -221,7 +224,7 @@ public class SportsPanel extends JFrame implements ItemListener {
     /**
      * Used with main.
      */
-    public static void createAndShowExercise(int sport) {
+    public static void createAndShowSport(int sport) {
         frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -251,7 +254,7 @@ public class SportsPanel extends JFrame implements ItemListener {
         SwingUtilities.invokeLater(
             new Runnable() {
                 public void run() {
-                    createAndShowExercise(1);
+                    createAndShowSport(1);
                 }
             }
         );
