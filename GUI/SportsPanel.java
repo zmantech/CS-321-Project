@@ -1,7 +1,5 @@
 package GUI;
 
-import Nutrition.*;
-import People.*;
 import Exercise.Exercise;
 
 import java.awt.*;
@@ -58,17 +56,39 @@ public class SportsPanel extends JFrame implements ItemListener {
     /**
      * This will create the panels for the cardLayout centerM. This will be more specific later on.
      */
-    public void initializeCenter(int sport) {
+    public void initializeCenter(int exercise) {
         // Maintaining Weight
         JPanel card1 = new JPanel();
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        /*
-        card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-        */
-        addTextToCard(card1, "Beginner");
-        String[] strings = Exercise.SportsBeginner(sport).split(",");
+        
+        //means it is a sport and should call sports methods
+        if(exercise >= 0 && exercise <= 7) {
+            addTextToCard(card1, "Overview:");
+            String[] strings = Exercise.SportsOverview(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            addTextToCard(card1, "");
+
+            addTextToCard(card1, "Beginner:");
+            strings = Exercise.SportsBeginner(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            addTextToCard(card1, "");
+
+            addTextToCard(card1, "Intermediate:");
+            strings = Exercise.SportsIntermediate(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            addTextToCard(card1, "");
+
+            addTextToCard(card1, "Advanced:");
+            strings = Exercise.SportsAdvanced(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+        }
+
+        centerM = card1;
+
     }
     /**
      * this method will add the string text to the card and make it center alligned.
@@ -82,16 +102,9 @@ public class SportsPanel extends JFrame implements ItemListener {
     }
 
     public void initializeTop() {
-        //String[] dList = {"Sports", "Weight Lifting", "Cardio"};
-
-        //Dropdown d = new Dropdown(dList);
-
-        //d.getData().addItemListener(this);
-
-        //topM.add(d.getData());
 
         // Add button to go back.
-        JButton back = new JButton("Main menu");
+        JButton back = new JButton("Exercise");
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,8 +112,7 @@ public class SportsPanel extends JFrame implements ItemListener {
                     @Override
                     public void run() {
                         frame.dispose();
-                        StartMenu.MenuPanel menu = new MenuPanel();
-                        menu.MenuPane();
+                        ExercisePanel.createAndShowExercise();
                     }
                 });
             }
@@ -214,36 +226,7 @@ public class SportsPanel extends JFrame implements ItemListener {
     /**
      * Used with main.
      */
-    public static void createAndShowExercise() {
-        frame = new JFrame("Testing out Nutrition Panel.");
-        //frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        //frame.setSize(500, 500);
-        //frame.setLocation(0, 0);
-
-        ExercisePanel nutrition = new ExercisePanel();
-
-        //nutrition.setColor('C', Color.blue);
-        nutrition.setColor('T', Color.red);
-        nutrition.setColor('L', Color.blue);
-        nutrition.setColor('R', Color.blue);
-        nutrition.setColor('B', Color.red);
-
-        nutrition.setDimension('T', frame.getWidth(), 100);
-        nutrition.setDimension('L', 150, frame.getHeight());
-        nutrition.setDimension('R', 150, frame.getHeight());
-        nutrition.setDimension('B', frame.getWidth(), 100);
-        
-        frame.add(nutrition.getMasterPanel());
-
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    /**
-     * Used with main.
-     */
-    public static void createAndShowExercise(int sport) {
+    public static void createAndShowSport(int sport) {
         frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -273,7 +256,7 @@ public class SportsPanel extends JFrame implements ItemListener {
         SwingUtilities.invokeLater(
             new Runnable() {
                 public void run() {
-                    createAndShowExercise();
+                    createAndShowSport(1);
                 }
             }
         );

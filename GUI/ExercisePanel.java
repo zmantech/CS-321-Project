@@ -61,14 +61,9 @@ public class ExercisePanel extends JFrame implements ItemListener {
     public void initializeCenter() {
         // Maintaining Weight
         JPanel card1 = new JPanel();
-        
-        /*
-        card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-        */
 
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
+        
         JButton basketball = new JButton("Basketball");
         basketball.setAlignmentX(CENTER_ALIGNMENT);
         card1.add(basketball);
@@ -79,7 +74,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(0);
+                        SportsPanel.createAndShowSport(0);
                     }
                 }
             );}
@@ -95,7 +90,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(1);
+                        SportsPanel.createAndShowSport(1);
                     }
                 }
             );}
@@ -111,7 +106,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(2);
+                        SportsPanel.createAndShowSport(2);
                     }
                 }
             );}
@@ -127,7 +122,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(3);
+                        SportsPanel.createAndShowSport(3);
                     }
                 }
             );}
@@ -143,7 +138,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(4);
+                        SportsPanel.createAndShowSport(4);
                     }
                 }
             );}
@@ -159,7 +154,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(5);
+                        SportsPanel.createAndShowSport(5);
                     }
                 }
             );}
@@ -175,7 +170,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(6);
+                        SportsPanel.createAndShowSport(6);
                     }
                 }
             );}
@@ -191,7 +186,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
                 frame.dispose();
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        SportsPanel.createAndShowExercise(7);
+                        SportsPanel.createAndShowSport(7);
                     }
                 }
             );}
@@ -207,16 +202,6 @@ public class ExercisePanel extends JFrame implements ItemListener {
         centerM.add(card1, "Sports");
         centerM.add(card2, "Weight Lifting");
         centerM.add(card3, "Cardio");
-    }
-    /**
-     * this method will add the string text to the card and make it center alligned.
-     * @param card  the card you wish to add the text to.
-     * @param text  the string to add to the card.
-     */
-    private void addTextToCard(JPanel card, String text) {
-        JLabel lab = new  JLabel(text);
-        lab.setAlignmentX(CENTER_ALIGNMENT);
-        card.add(lab);
     }
 
     public void initializeTop() {
@@ -353,7 +338,7 @@ public class ExercisePanel extends JFrame implements ItemListener {
      * Used with main.
      */
     public static void createAndShowExercise() {
-        frame = new JFrame("Testing out Nutrition Panel.");
+        frame = new JFrame("Sports Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);
