@@ -88,7 +88,7 @@ public class PersonCreatorPanel {
         JTextField lastNameField = new JTextField(10);
         JLabel ageLabel = new JLabel("Enter your age:");
         JTextField ageField = new JTextField(5);
-        JLabel weightLabel = new JLabel("Enter your weight (kg):");
+        JLabel weightLabel = new JLabel("Enter your weight (lbs):");
         JTextField weightField = new JTextField(5);
         JLabel heightLabel = new JLabel("Enter your height, Feet first:");
         JTextField feetField = new JTextField(3);
