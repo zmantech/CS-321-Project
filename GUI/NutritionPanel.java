@@ -65,16 +65,16 @@ public class NutritionPanel extends JFrame implements ItemListener {
         card1.add(new JButton("Button 3"));
         */
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        addTextToCard(card1, "Calories to Maintain Weight: " + String.format("%.2f",OnePerson.person.getCalories()));
+        addTextToCard(card1, "Calories to Maintain Weight: " + String.format("%.2f",Nutrition.WeightChange(OnePerson.person)));
         // Gaining Weight
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
-        addTextToCard(card2, "Calories to Gain Weight: " + String.format("%.2f", Nutrition.CalorieMaintenance(OnePerson.person) + 500));
+        addTextToCard(card2, "Calories to Gain Weight: " + String.format("%.2f", Nutrition.WeightChange(OnePerson.person) + Nutrition.CalorieMaintenance(OnePerson.person)));
 
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-        addTextToCard(card3, "Calories to Lose Weight: " + String.format("%.2f",Nutrition.CalorieMaintenance(OnePerson.person) - 500));
+        addTextToCard(card3, "Calories to Lose Weight: " + String.format("%.2f",Nutrition.WeightChange(OnePerson.person) - Nutrition.CalorieMaintenance(OnePerson.person)));
 
         addVitaminsMinerals(card3);
         addVitaminsMinerals(card2);
