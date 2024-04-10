@@ -204,7 +204,7 @@ public class Nutrition {
      * @return          the amount of calories needed to intake to keep your body weight in calories.
      */
     public static double CalorieMaintenance(Person person) {
-        return (person.getWeight()*15)/7;
+        return (person.getWeight()*6.8)/7;  // 15lbs to kilogram = 6.80389
     }
 
     /**
