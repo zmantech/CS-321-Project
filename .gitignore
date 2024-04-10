@@ -3,3 +3,4 @@
 #ignore any files in temp/ folder such as settings
 temp/
 Users/
+SavedPeople/
