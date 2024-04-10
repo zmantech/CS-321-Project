@@ -3,13 +3,9 @@ package GUI;
 import java.awt.*;
 import java.awt.event.*;
 
-import javax.naming.MalformedLinkException;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 import People.*;
-
-import java.util.*;
 
 public class PersonCreatorPanel {
     

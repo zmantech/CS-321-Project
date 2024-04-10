@@ -5,11 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import People.OnePerson;
-import People.Ourfile;
-
-import java.util.*;
-
 public class StartMenu {
 
     public static JFrame frame;

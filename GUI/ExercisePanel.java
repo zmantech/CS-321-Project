@@ -1,15 +1,10 @@
 package GUI;
 
-import Nutrition.*;
-import People.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 import GUI.StartMenu.MenuPanel;
-
-import java.util.*;
 
 public class ExercisePanel extends JFrame implements ItemListener {
     /**
