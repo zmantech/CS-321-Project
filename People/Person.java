@@ -215,6 +215,8 @@ public class Person {
      */
     public void setAge(int age) {
         this.age = age;
+        calculateCalories();     
+
     }
 
     /**
@@ -223,6 +225,7 @@ public class Person {
      */
     public void setWeight(int weight) {
         this.weight = weight;
+        calculateCalories();     
     }
 
     /**
@@ -231,6 +234,7 @@ public class Person {
      */
     public void setFeet(int feet) {
         this.feet = feet;
+        calculateCalories();     
     }
 
     /**
@@ -239,6 +243,7 @@ public class Person {
      */
     public void setInches(int inches) {
         this.inches = inches;
+        calculateCalories();     
     }
 
     /**
@@ -248,6 +253,7 @@ public class Person {
     public void setHeight(int inches) {
         this.feet = inches / 12;
         this.inches = inches % 12;
+        calculateCalories();     
     }
 
     /**
@@ -255,7 +261,8 @@ public class Person {
      * @param gender    the gender to set
      */
     public void setGender(Gender gender) {
-        this.gender = gender;       
+        this.gender = gender;  
+        calculateCalories();     
     }
 
     /**
@@ -266,6 +273,16 @@ public class Person {
         this.calories = calories;       
     }
 
+    /**
+     * a calculator that sets this.calories to the caloories based on math.
+     */
+    public void calculateCalories() {
+        if(gender == Gender.MALE) {
+            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        } else { //female
+            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        }
+    }
     /**
      * a to string override method is how the person will be used to write to files.
      * @return the string of the person
