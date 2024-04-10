@@ -199,10 +199,10 @@ public class Nutrition {
      * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
      * @return          true if weight was lost otherwise false meaning weight was gained(including net 0 changes)
      */
-    public static boolean WeightLoss(Person person) {
-        if(WeightChange(person) < CalorieMaintenance(person) + person.getCalories()) return true; 
-        return false; 
-    }
+    //public static boolean WeightLoss(Person person) {
+    //    if(WeightChange(person) < CalorieMaintenance(person) + person.getCalories()) return true; 
+    //    return false; 
+    //}
 
     /**
      * FEATURE: will get the number of calories needed to maintain current weight.
