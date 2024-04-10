@@ -25,21 +25,41 @@ public class PersonCreatorPanel {
         // Does nothing and we dont need it.
     }
 
+    public static class confirmationFrame {
+
+        public static void confirmation() {
+            JFrame confirm = new JFrame("Confirmation.");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JPanel temp = new JPanel();
+            JLabel msg = new JLabel("You have saved your information!");
+            temp.add(msg);
+
+            confirm.add(temp);
+
+            confirm.pack();
+            confirm.setVisible(true);
+        }
+
+    }
+    
+        
+
     public static void createAndShowPersonCreator() {
         frame = new JFrame("Create a Person.");
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.setSize(720, 500);
 
         JPanel base = new JPanel();
         base.setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel();
-        topPanel.setPreferredSize(new Dimension(frame.getWidth(), 50));
+        topPanel.setPreferredSize(new Dimension(frame.getWidth(), 150));
         JPanel leftPanel = new JPanel();
-        leftPanel.setPreferredSize(new Dimension(50, frame.getHeight()));
+        leftPanel.setPreferredSize(new Dimension(150, frame.getHeight()));
         JPanel rightPanel = new JPanel();
-        rightPanel.setPreferredSize(new Dimension(50, frame.getHeight()));
+        rightPanel.setPreferredSize(new Dimension(150, frame.getHeight()));
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), 50));
+        bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), 150));
 
         base.add(topPanel, BorderLayout.NORTH);
         base.add(leftPanel, BorderLayout.WEST);
@@ -92,6 +112,52 @@ public class PersonCreatorPanel {
         panel.add(genderLabel);
         panel.add(genderComboBox);
 
+        
+
+        JButton savePerson = new JButton("Save Data");
+        savePerson.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JLabel confirmation = new JLabel("You have saved your information!");
+        confirmation.setAlignmentX(Component.CENTER_ALIGNMENT);
+        savePerson.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OnePerson.person.setFirstName(firstNameField.getText());
+                OnePerson.person.setLastName(lastNameField.getText());
+                OnePerson.person.setWeight( (int) Double.parseDouble(weightField.getText()));
+                OnePerson.person.setInches((int) Double.parseDouble(inchesField.getText()));
+                OnePerson.person.setFeet((int) Double.parseDouble(feetField.getText()));
+                OnePerson.person.setAge((int) Double.parseDouble(ageField.getText()));
+                People.Ourfile.savePerson(OnePerson.person);
+                // Confirmation message here.
+                /*
+                panel.add(confirmation);
+                frame.repaint();
+                */
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                    confirmationFrame.confirmation();
+                }});
+            }
+        });
+
+        JButton back = new JButton("Main menu");
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        frame.dispose();
+                        StartMenu.MenuPanel menu = new StartMenu.MenuPanel();
+                        menu.MenuPane();
+                    }
+                });
+            }
+        });
+
+        panel.add(savePerson);
+        base.add(back, BorderLayout.NORTH);
+
         base.add(panel, BorderLayout.CENTER);
 
         frame.add(base);
@@ -99,15 +165,58 @@ public class PersonCreatorPanel {
         frame.pack();
         frame.setVisible(true);
 
+        /*
+
+        weightField.addMouseListener(new MouseAdapter() {
+            @Override
+             public void mousePressed(MouseEvent evt) {
+                if(evt.getSource() == weightField){
+                    int data = Integer.parseInt(weightField.getText());
+                    OnePerson.person.setWeight(data);
+                }
+            }
+        });
+        inchesField.addMouseListener(new MouseAdapter() {
+            @Override
+             public void mousePressed(MouseEvent evt) {
+                if(evt.getSource() == inchesField){
+                    int data = Integer.parseInt(inchesField.getText());
+                    OnePerson.person.setInches(data);
+                }
+            }
+        });
+        feetField.addMouseListener(new MouseAdapter() {
+            @Override
+             public void mousePressed(MouseEvent evt) {
+                if(evt.getSource() == feetField){
+                    int data = Integer.parseInt(feetField.getText());
+                    OnePerson.person.setFeet(data);
+                }
+            }
+        });
+        ageField.addMouseListener(new MouseAdapter() {
+            @Override
+             public void mousePressed(MouseEvent evt) {
+                if(evt.getSource() == ageField){
+                    int data = Integer.parseInt(ageField.getText());
+                    OnePerson.person.setAge(data);
+                }
+            }
+        });
+        */
+
+        /*
         OnePerson.person.setFirstName(firstNameField.getText());
         OnePerson.person.setLastName(lastNameField.getText());
         OnePerson.person.setWeight( (int) Double.parseDouble(weightField.getText()));
         OnePerson.person.setInches((int) Double.parseDouble(inchesField.getText()));
         OnePerson.person.setFeet((int) Double.parseDouble(feetField.getText()));
         OnePerson.person.setAge((int) Double.parseDouble(ageField.getText()));
-
+        */
         
     }
+
+    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

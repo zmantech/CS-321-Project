@@ -35,6 +35,7 @@ public class StartMenu {
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             frame.setLocationRelativeTo(null);
             
+            
             JPanel panel = new JPanel(new GridBagLayout());
             panel.setBorder(new EmptyBorder(100, 100, 100, 100));
 
