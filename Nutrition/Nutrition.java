@@ -185,7 +185,13 @@ public class Nutrition {
      * @return          current calorie adjusted size based on calorie consumption.
      */
     public static double WeightChange(Person person) {
-        return ((person.getCalories() - person.getCalories()) + CalorieMaintenance(person));
+        double BMR;
+        if(person.getGender() == Gender.MALE) {
+            BMR = (double)(66.0 + (6.23 * person.getWeight()) + (12.7 * person.getHeight()) - (6.8 * person.getAge()));
+        } else { //female
+            BMR = (double)(655 + (4.35 * person.getWeight()) + (4.7 * person.getHeight()) - (4.7 * person.getAge()));
+        }
+        return (BMR + CalorieMaintenance(person));
     }
 
     /**

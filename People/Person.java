@@ -58,11 +58,7 @@ public class Person {
         this.feet = (int)(feet / 3.281); //feet to cm truncated for int    formulas from google
         this.inches = (int)(inches * 2.54); //inch to cm truncated for int
         this.gender = gender;
-        if(gender == Gender.MALE) {
-            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
-        } else { //female
-            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
-        }
+        this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
     }
 
     public Person() {
@@ -89,11 +85,8 @@ public class Person {
         this.feet = Ourfile.getFeet(file); this.feet = (int)(this.feet / 3.281); //conversions from top constructor
         this.inches = Ourfile.getInches(file); this.inches = (int)(this.inches * 2.54);
         this.gender = Ourfile.getGender(file);
-        if(gender == Gender.MALE) {
-            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
-        } else { //female
-            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
-        }
+        this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
+        
     }
 
     /**
@@ -215,7 +208,7 @@ public class Person {
      */
     public void setAge(int age) {
         this.age = age;
-        calculateCalories();     
+        //calculateCalories();     
 
     }
 
@@ -234,7 +227,7 @@ public class Person {
      */
     public void setFeet(int feet) {
         this.feet = feet;
-        calculateCalories();     
+        //calculateCalories();     
     }
 
     /**
@@ -243,7 +236,7 @@ public class Person {
      */
     public void setInches(int inches) {
         this.inches = inches;
-        calculateCalories();     
+        //calculateCalories();     
     }
 
     /**
@@ -253,7 +246,7 @@ public class Person {
     public void setHeight(int inches) {
         this.feet = inches / 12;
         this.inches = inches % 12;
-        calculateCalories();     
+        //calculateCalories();     
     }
 
     /**
@@ -262,7 +255,7 @@ public class Person {
      */
     public void setGender(Gender gender) {
         this.gender = gender;  
-        calculateCalories();     
+        //calculateCalories();     
     }
 
     /**
@@ -277,11 +270,12 @@ public class Person {
      * a calculator that sets this.calories to the caloories based on math.
      */
     public void calculateCalories() {
-        if(gender == Gender.MALE) {
-            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
-        } else { //female
-            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
-        }
+        this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
+        //if(gender == Gender.MALE) {
+        //    this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        //} else { //female
+        //    this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        //}
     }
     /**
      * a to string override method is how the person will be used to write to files.
