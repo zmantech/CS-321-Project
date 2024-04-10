@@ -122,7 +122,7 @@ public class StartMenu {
             CloseButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Ourfile.savePerson(OnePerson.person);
+                    //Ourfile.savePerson(OnePerson.person);//no longer needed
                     System.exit(0);  
                 }
             });
