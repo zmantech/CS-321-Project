@@ -161,8 +161,8 @@ public class Person {
     }
 
     /**
-     * a getter that adds the feet to the total num of inches.
-     * @return  an int of the persons total height
+     * a getter that adds the feet to the person inches
+     * @return  an int of the persons total height in inches
      */
     public int getHeight() {
         return this.feet * 12 + this.inches;
