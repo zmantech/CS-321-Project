@@ -6,10 +6,12 @@ import People.*;
  */
 public class Nutrition {
 
+    //note: the macronutrients follow % intake per day. notify if it needs to be changed to literal measurements.
+
     /**
-     * method returns the amount of water a person should drink per day in ounces.
+     * method returns the amount of water a person should drink per day in liters.
      * @param person    the person to check how much water they should drink.
-     * @return          the amount of water in ounces person should drink per day.
+     * @return          the amount of water in liters person should drink per day.
      */
     public static float getWater(Person person) {
         return (float) .5 * person.getWeight();
@@ -202,7 +204,7 @@ public class Nutrition {
      * @return          the amount of calories needed to intake to keep your body weight in calories.
      */
     public static double CalorieMaintenance(Person person) {
-        return (person.getWeight()*15)/7;
+        return (person.getWeight()*6.8)/7;  // 15lbs to kilogram = 6.80389
     }
 
     /**
