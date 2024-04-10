@@ -200,7 +200,7 @@ public class Nutrition {
      * @return          true if weight was lost otherwise false meaning weight was gained(including net 0 changes)
      */
     public static boolean WeightLoss(Person person) {
-        if(WeightChange(person) < CalorieMaintenance(person)) return true; 
+        if(WeightChange(person) < CalorieMaintenance(person) + person.getCalories()) return true; 
         return false; 
     }
 
