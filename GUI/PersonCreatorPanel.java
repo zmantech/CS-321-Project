@@ -2,10 +2,12 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+
+import javax.naming.MalformedLinkException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import People.OnePerson;
+import People.*;
 
 import java.util.*;
 
@@ -97,6 +99,23 @@ public class PersonCreatorPanel {
         JLabel genderLabel = new JLabel("Select your gender:");
         JComboBox<String> genderComboBox = new JComboBox<>(new String[]{"Male", "Female"});
 
+        // Item listener for the comoboBox.
+        genderComboBox.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent evt) {
+                Gender gender = Gender.MALE;
+
+                String check = (String)evt.getItem();
+                if (check.equals("Male")) {
+                    gender = Gender.MALE;
+                }
+                if (check.equals("Female")) {
+                    gender = Gender.FEMALE;
+                }
+
+                OnePerson.person.setGender(gender);
+            }
+        });
+
         panel.add(firstNameLabel);
         panel.add(firstNameField);
         panel.add(lastNameLabel);
@@ -127,6 +146,7 @@ public class PersonCreatorPanel {
                 OnePerson.person.setInches((int) Double.parseDouble(inchesField.getText()));
                 OnePerson.person.setFeet((int) Double.parseDouble(feetField.getText()));
                 OnePerson.person.setAge((int) Double.parseDouble(ageField.getText()));
+                // Reference the item listener, this adds the gender.
                 People.Ourfile.savePerson(OnePerson.person);
                 // Confirmation message here.
                 /*
