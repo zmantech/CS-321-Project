@@ -27,7 +27,7 @@ public class PersonCreatorPanel {
 
         public static void confirmation() {
             JFrame confirm = new JFrame("Confirmation.");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            confirm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             JPanel temp = new JPanel();
             JLabel msg = new JLabel("You have saved your information!");
             temp.add(msg);
@@ -92,7 +92,7 @@ public class PersonCreatorPanel {
         JTextField feetField = new JTextField(3);
         JLabel inchesLabel = new JLabel("Inches");
         JTextField inchesField = new JTextField(3);
-        JLabel genderLabel = new JLabel("Select your gender:");
+        JLabel genderLabel = new JLabel("Select your biological gender:");
         JComboBox<String> genderComboBox = new JComboBox<>(new String[]{"Male", "Female"});
 
         // Item listener for the comoboBox.

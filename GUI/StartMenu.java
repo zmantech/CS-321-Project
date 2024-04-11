@@ -94,13 +94,18 @@ public class StartMenu {
                     }
                 );}
             });
-            /*
+            
             UploadPerson.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    
-                }
-            });*/
+                    frame.dispose();
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            PersonFileCreatorPanel.createPersonFileCreatorPanel();
+                        }
+                    }
+                );}
+            });
             
             CreateAPerson.addActionListener(new ActionListener() {
                 @Override
