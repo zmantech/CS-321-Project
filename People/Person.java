@@ -81,9 +81,9 @@ public class Person {
         this.firstName = Ourfile.getFirstName(file);
         this.lastName = Ourfile.getLastName(file);
         this.age = Ourfile.getAge(file);
-        this.weight = Ourfile.getWeight(file); this.weight = (int)(this.weight / 2.205);
-        this.feet = Ourfile.getFeet(file); this.feet = (int)(this.feet / 3.281); //conversions from top constructor
-        this.inches = Ourfile.getInches(file); this.inches = (int)(this.inches * 2.54);
+        this.weight = Ourfile.getWeight(file); //this.weight = (int)(this.weight / 2.205);
+        this.feet = Ourfile.getFeet(file); //this.feet = (int)(this.feet / 3.281); //conversions from top constructor
+        this.inches = Ourfile.getInches(file); //this.inches = (int)(this.inches * 2.54);
         this.gender = Ourfile.getGender(file);
         this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
         

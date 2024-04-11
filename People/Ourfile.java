@@ -133,7 +133,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("FEET:")) {
+                if(line.substring(0,line.indexOf(' ')).equals("HEIGHT_FEET:")) {
                     myScanner.close();
                     return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
@@ -160,9 +160,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("INCHES:")) {
+                if(line.substring(0,line.indexOf(' ')).equals("HEIGHT_INCHES:")) {
                     myScanner.close();
-                    return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
+                    return Integer.parseInt(line.substring((line.indexOf(' ') + 1)));
                 }
 
             }

@@ -47,8 +47,7 @@ public class PersonFileCreatorPanel {
                 // Reference the item listener, this adds the gender.
                 String file = path.getText();
                 OnePerson.person = new Person(file);
-                System.out.println(OnePerson.person);
-                People.Ourfile.savePerson(OnePerson.person);
+
                 // Confirmation message here.
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
