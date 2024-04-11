@@ -28,7 +28,7 @@ public class StartMenu {
         public void MenuPane() {
             frame = new JFrame("Fitnition");
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
+            //frame.setLocationRelativeTo(null);
             
             
             JPanel panel = new JPanel(new GridBagLayout());

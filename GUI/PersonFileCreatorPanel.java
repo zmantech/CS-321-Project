@@ -35,9 +35,9 @@ public class PersonFileCreatorPanel {
         JTextField path = new JTextField("Replace text here");
 
         JButton savePerson = new JButton("Save Data");
-        savePerson.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //savePerson.setAlignmentX(Component.CENTER_ALIGNMENT);
         JLabel confirmation = new JLabel("You have saved your information!");
-        confirmation.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //confirmation.setAlignmentX(Component.CENTER_ALIGNMENT);
         savePerson.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
