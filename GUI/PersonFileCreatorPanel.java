@@ -36,8 +36,6 @@ public class PersonFileCreatorPanel {
 
         JButton savePerson = new JButton("Save Data");
         //savePerson.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JLabel confirmation = new JLabel("You have saved your information!");
-        //confirmation.setAlignmentX(Component.CENTER_ALIGNMENT);
         savePerson.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
