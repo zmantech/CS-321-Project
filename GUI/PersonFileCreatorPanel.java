@@ -28,8 +28,8 @@ public class PersonFileCreatorPanel {
         JPanel base = new JPanel();
         base.setLayout(new BoxLayout(base, BoxLayout.Y_AXIS));
 
-        JLabel info = new JLabel("Please enter the full path of where the file is located on your machine in the text field below.");
-        JLabel info2 = new JLabel("Example: ...\\Documents\\GitHub\\CS-321-Project\\SavedPeople");
+        JLabel info = new JLabel("Please enter the full or relative path of where the file is located on your machine in the text field below.");
+        JLabel info2 = new JLabel("Example: ...C:\\...\\Documents\\GitHub\\CS-321-Project\\SavedPeople or SavedPeople\\Zachcanter21.txt");
         JLabel info3 = new JLabel("If there are no files inside of the folder mentioned above, please head back to the main menu using the button at the top and click on the button labeled: Create a Person");
 
         JTextField path = new JTextField("Replace text here");
@@ -45,8 +45,7 @@ public class PersonFileCreatorPanel {
                 // Reference the item listener, this adds the gender.
                 String file = path.getText();
                 OnePerson.person = new Person(file);
-                System.out.println(OnePerson.person);
-                People.Ourfile.savePerson(OnePerson.person);
+
                 // Confirmation message here.
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
