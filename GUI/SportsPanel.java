@@ -62,7 +62,7 @@ public class SportsPanel extends JFrame implements ItemListener {
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
         
         //means it is a sport and should call sports methods
-        if(exercise >= 0 && exercise <= 7) {
+        if(exercise >= 0 && exercise <= 18) {
             addTextToCard(card1, "Overview:");
             String[] strings = Exercise.SportsOverview(exercise).split("\n");
             for(String str: strings)

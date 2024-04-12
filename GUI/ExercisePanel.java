@@ -1,15 +1,10 @@
 package GUI;
 
-import Nutrition.*;
-import People.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 import GUI.StartMenu.MenuPanel;
-
-import java.util.*;
 
 public class ExercisePanel extends JFrame implements ItemListener {
     /**
@@ -61,7 +56,6 @@ public class ExercisePanel extends JFrame implements ItemListener {
     public void initializeCenter() {
         // Maintaining Weight
         JPanel card1 = new JPanel();
-
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
         
         JButton basketball = new JButton("Basketball");
@@ -194,10 +188,187 @@ public class ExercisePanel extends JFrame implements ItemListener {
         
         JPanel card2 = new JPanel();
         card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
+
+        JButton chest = new JButton("Chest");
+        chest.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(chest);
+
+        chest.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(8);
+                    }
+                }
+            );}
+        });
+
+        JButton shoulders = new JButton("Shoulders");
+        shoulders.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(shoulders);
+
+        shoulders.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(9);
+                    }
+                }
+            );}
+        });
+
+        JButton biceps = new JButton("Biceps");
+        biceps.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(biceps);
+
+        biceps.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(10);
+                    }
+                }
+            );}
+        });
+
+        JButton triceps = new JButton("Triceps");
+        triceps.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(triceps);
+
+        triceps.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(11);
+                    }
+                }
+            );}
+        });
+        
+
+        JButton quads = new JButton("Quads");
+        quads.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(quads);
+
+        quads.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(12);
+                    }
+                }
+            );}
+        });
+
+        JButton hamstrings = new JButton("Hamstrings");
+        hamstrings.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(hamstrings);
+
+        hamstrings.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(13);
+                    }
+                }
+            );}
+        });
+
+        JButton calves = new JButton("Calves");
+        calves.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(calves);
+
+        calves.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(14);
+                    }
+                }
+            );}
+        });
+
+        JButton abs = new JButton("Abs");
+        abs.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(abs);
+
+        abs.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(15);
+                    }
+                }
+            );}
+        });
+
+        JButton back = new JButton("Back");
+        back.setAlignmentX(CENTER_ALIGNMENT);
+        card2.add(back);
+
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(16);
+                    }
+                }
+            );}
+        });
    
         // Losing Weight
         JPanel card3 = new JPanel();
         card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
+
+        JButton running = new JButton("Running");
+        running.setAlignmentX(CENTER_ALIGNMENT);
+        card3.add(running);
+
+        running.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(17);
+                    }
+                }
+            );}
+        });
+
+        JButton swimming = new JButton("Swimming");
+        swimming.setAlignmentX(CENTER_ALIGNMENT);
+        card3.add(swimming);
+
+        swimming.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        SportsPanel.createAndShowSport(18);
+                    }
+                }
+            );}
+        });
     
         centerM.add(card1, "Sports");
         centerM.add(card2, "Weight Lifting");
