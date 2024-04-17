@@ -1,3 +1,3 @@
 # CS-321-Project
 
-Add all determinate information about the Project here.
+GUI.GUI is our main class which will allow you to open the project.
