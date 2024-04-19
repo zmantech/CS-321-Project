@@ -6,10 +6,12 @@ import People.*;
  */
 public class Nutrition {
 
+    //note: the macronutrients follow % intake per day. notify if it needs to be changed to literal measurements.
+
     /**
-     * method returns the amount of water a person should drink per day in ounces.
+     * method returns the amount of water a person should drink per day in liters.
      * @param person    the person to check how much water they should drink.
-     * @return          the amount of water in ounces person should drink per day.
+     * @return          the amount of water in liters person should drink per day.
      */
     public static float getWater(Person person) {
         return (float) .5 * person.getWeight();
@@ -183,7 +185,13 @@ public class Nutrition {
      * @return          current calorie adjusted size based on calorie consumption.
      */
     public static double WeightChange(Person person) {
-        return ((person.getCalories() - person.getCalories()) + CalorieMaintenance(person));
+        double BMR;
+        if(person.getGender() == Gender.MALE) {
+            BMR = (double)(66.0 + (6.23 * person.getWeight()) + (12.7 * person.getHeight()) - (6.8 * person.getAge()));
+        } else { //female
+            BMR = (double)(655 + (4.35 * person.getWeight()) + (4.7 * person.getHeight()) - (4.7 * person.getAge()));
+        }
+        return (BMR + CalorieMaintenance(person));
     }
 
     /**
@@ -191,10 +199,10 @@ public class Nutrition {
      * @param person    persons data used to caluclate the apporximate amount of calories needed to lose weight.
      * @return          true if weight was lost otherwise false meaning weight was gained(including net 0 changes)
      */
-    public static boolean WeightLoss(Person person) {
-        if(WeightChange(person) < CalorieMaintenance(person)) return true; 
-        return false; 
-    }
+    //public static boolean WeightLoss(Person person) {
+    //    if(WeightChange(person) < CalorieMaintenance(person) + person.getCalories()) return true; 
+    //    return false; 
+    //}
 
     /**
      * FEATURE: will get the number of calories needed to maintain current weight.
@@ -202,7 +210,7 @@ public class Nutrition {
      * @return          the amount of calories needed to intake to keep your body weight in calories.
      */
     public static double CalorieMaintenance(Person person) {
-        return (person.getWeight()*15)/7;
+        return (person.getWeight()*6.8)/7;  // 15lbs to kilogram = 6.80389
     }
 
     /**

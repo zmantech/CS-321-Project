@@ -23,7 +23,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("FIRST_NAME: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("FIRST_NAME:")) {
                     myScanner.close();
                     return line.substring(line.indexOf(' ') + 1);
                 }
@@ -51,7 +51,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("LAST_NAME: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("LAST_NAME:")) {
                     myScanner.close();
                     return line.substring(line.indexOf(' ') + 1);
                 }
@@ -77,7 +77,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("WEIGHT: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("WEIGHT:")) {
                     myScanner.close();
                     return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
@@ -105,7 +105,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("AGE: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("AGE:")) {
                     myScanner.close();
                     return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
@@ -115,6 +115,7 @@ public class Ourfile {
         } catch (Exception e) {
             return -1;
         }
+        System.out.println("here");
         return -1;
     }
 
@@ -132,7 +133,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("FEET: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("HEIGHT_FEET:")) {
                     myScanner.close();
                     return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
                 }
@@ -159,9 +160,9 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("INCHES: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("HEIGHT_INCHES:")) {
                     myScanner.close();
-                    return Integer.parseInt(line.substring(line.indexOf(' ') + 1));
+                    return Integer.parseInt(line.substring((line.indexOf(' ') + 1)));
                 }
 
             }
@@ -186,7 +187,7 @@ public class Ourfile {
             while(myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 
-                if(line.substring(0,line.indexOf(' ')).equals("GENDER: ")) {
+                if(line.substring(0,line.indexOf(' ')).equals("GENDER:")) {
                     if(line.substring(line.indexOf(' ') + 1).equals("MALE")) {
                         myScanner.close();
                         return Gender.MALE;
@@ -211,10 +212,10 @@ public class Ourfile {
      * @return true if the write was successful false otherwise
      */
     public static boolean savePerson(Person person) {
-        
-        String file = person.getFirstName() + person.getLastName() + person.getAge() + ".txt";
 
         try {
+            File file = new File("SavedPeople\\" + person.getFirstName() + person.getLastName() + person.getAge() + ".txt");
+            file.getParentFile().mkdirs();
             FileWriter writer = new FileWriter(file);//creates writer
             writer.write(person.toString());//uses to string to put person info in file
             writer.close();//closes the pointer

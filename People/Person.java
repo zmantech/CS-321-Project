@@ -54,15 +54,11 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.weight = weight;
-        this.feet = feet;
-        this.inches = inches;
+        this.weight = (int)(weight / 2.205); //lbs to kg truncated for int
+        this.feet = (int)(feet / 3.281); //feet to cm truncated for int    formulas from google
+        this.inches = (int)(inches * 2.54); //inch to cm truncated for int
         this.gender = gender;
-        if(gender == Gender.MALE) {
-            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
-        } else { //female
-            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
-        }
+        this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
     }
 
     public Person() {
@@ -85,15 +81,12 @@ public class Person {
         this.firstName = Ourfile.getFirstName(file);
         this.lastName = Ourfile.getLastName(file);
         this.age = Ourfile.getAge(file);
-        this.weight = Ourfile.getWeight(file);
-        this.feet = Ourfile.getFeet(file);
-        this.inches = Ourfile.getInches(file);
+        this.weight = Ourfile.getWeight(file); //this.weight = (int)(this.weight / 2.205);
+        this.feet = Ourfile.getFeet(file); //this.feet = (int)(this.feet / 3.281); //conversions from top constructor
+        this.inches = Ourfile.getInches(file); //this.inches = (int)(this.inches * 2.54);
         this.gender = Ourfile.getGender(file);
-        if(gender == Gender.MALE) {
-            this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
-        } else { //female
-            this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
-        }
+        this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
+        
     }
 
     /**
@@ -161,8 +154,8 @@ public class Person {
     }
 
     /**
-     * a getter that adds the feet to the total num of inches.
-     * @return  an int of the persons total height
+     * a getter that adds the feet to the person inches
+     * @return  an int of the persons total height in inches
      */
     public int getHeight() {
         return this.feet * 12 + this.inches;
@@ -215,6 +208,8 @@ public class Person {
      */
     public void setAge(int age) {
         this.age = age;
+        //calculateCalories();     
+
     }
 
     /**
@@ -223,6 +218,7 @@ public class Person {
      */
     public void setWeight(int weight) {
         this.weight = weight;
+        calculateCalories();     
     }
 
     /**
@@ -231,6 +227,7 @@ public class Person {
      */
     public void setFeet(int feet) {
         this.feet = feet;
+        //calculateCalories();     
     }
 
     /**
@@ -239,6 +236,7 @@ public class Person {
      */
     public void setInches(int inches) {
         this.inches = inches;
+        //calculateCalories();     
     }
 
     /**
@@ -248,6 +246,7 @@ public class Person {
     public void setHeight(int inches) {
         this.feet = inches / 12;
         this.inches = inches % 12;
+        //calculateCalories();     
     }
 
     /**
@@ -255,7 +254,8 @@ public class Person {
      * @param gender    the gender to set
      */
     public void setGender(Gender gender) {
-        this.gender = gender;       
+        this.gender = gender;  
+        //calculateCalories();     
     }
 
     /**
@@ -266,6 +266,17 @@ public class Person {
         this.calories = calories;       
     }
 
+    /**
+     * a calculator that sets this.calories to the caloories based on math.
+     */
+    public void calculateCalories() {
+        this.calories = this.weight * 3500; //1lb or .45kg = 3500 calories
+        //if(gender == Gender.MALE) {
+        //    this.calories = (double)(66.0 + (6.23 * weight) + (12.7 * this.getHeight()) - (6.8 * age));
+        //} else { //female
+        //    this.calories = (double)(655 + (4.35 * weight) + (4.7 * this.getHeight()) - (4.7 * age));
+        //}
+    }
     /**
      * a to string override method is how the person will be used to write to files.
      * @return the string of the person

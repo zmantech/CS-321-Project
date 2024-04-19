@@ -5,8 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import java.util.*;
-
 public class StartMenu {
 
     public static JFrame frame;
@@ -30,7 +28,8 @@ public class StartMenu {
         public void MenuPane() {
             frame = new JFrame("Fitnition");
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
+            //frame.setLocationRelativeTo(null);
+            
             
             JPanel panel = new JPanel(new GridBagLayout());
             panel.setBorder(new EmptyBorder(100, 100, 100, 100));
@@ -95,17 +94,35 @@ public class StartMenu {
                     }
                 );}
             });
-            /*
+            
             UploadPerson.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    
+                    frame.dispose();
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            PersonFileCreatorPanel.createPersonFileCreatorPanel();
+                        }
+                    }
                 );}
-            });*/
+            });
+            
+            CreateAPerson.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame.dispose();
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            PersonCreatorPanel.createAndShowPersonCreator();
+                        }
+                    }
+                );}
+            });
 
             CloseButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    //Ourfile.savePerson(OnePerson.person);//no longer needed
                     System.exit(0);  
                 }
             });

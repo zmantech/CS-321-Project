@@ -1,16 +1,12 @@
 package GUI;
 
-import Nutrition.*;
-import People.*;
+import Exercise.Exercise;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import GUI.StartMenu.MenuPanel;
-
-public class NutritionPanel extends JFrame implements ItemListener {
-
+public class SportsPanel extends JFrame implements ItemListener {
     /**
      * Master frame.
      */
@@ -27,21 +23,20 @@ public class NutritionPanel extends JFrame implements ItemListener {
      */
     public static JPanel centerM, topM, leftM, rightM, bottomM;
 
-
     /**
-     * Constructor for the nutrition panel. This will essentially call all methods and create the panel to be put into the nutrition side.
+     * Constructor for the Exercise panel. This will essentially call all methods and create the panel to be put into the nutrition side.
      * There will be a larger outside panel with the Border Layout.
      * Each section of the Border layout will have a panel based on what information should go there.
      * Finally, there will be added capability to swap between this panel and the intro panel.
      * All sections can be added and changed as needed.
      */
-    public NutritionPanel() {
+    public SportsPanel(int sport) {
         
 
         master = new JPanel();
         master.setLayout(new BorderLayout());
         centerM = new JPanel(new CardLayout());
-        initializeCenter();
+        initializeCenter(sport);
         topM = new JPanel();
         initializeTop();
         leftM = new JPanel();
@@ -57,32 +52,39 @@ public class NutritionPanel extends JFrame implements ItemListener {
     /**
      * This will create the panels for the cardLayout centerM. This will be more specific later on.
      */
-    public void initializeCenter() {
+    public void initializeCenter(int exercise) {
         // Maintaining Weight
         JPanel card1 = new JPanel();
-        /*card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-        */
         card1.setLayout(new BoxLayout(card1, BoxLayout.Y_AXIS));
-        addTextToCard(card1, "Calories to Maintain Weight: " + String.format("%.2f",Nutrition.WeightChange(OnePerson.person)));
-        // Gaining Weight
-        JPanel card2 = new JPanel();
-        card2.setLayout(new BoxLayout(card2, BoxLayout.Y_AXIS));
-        addTextToCard(card2, "Calories to Gain Weight: " + String.format("%.2f", Nutrition.WeightChange(OnePerson.person) + Nutrition.CalorieMaintenance(OnePerson.person)));
-
-        // Losing Weight
-        JPanel card3 = new JPanel();
-        card3.setLayout(new BoxLayout(card3, BoxLayout.Y_AXIS));
-        addTextToCard(card3, "Calories to Lose Weight: " + String.format("%.2f",Nutrition.WeightChange(OnePerson.person) - Nutrition.CalorieMaintenance(OnePerson.person)));
-
-        addVitaminsMinerals(card3);
-        addVitaminsMinerals(card2);
-        addVitaminsMinerals(card1);
         
-        centerM.add(card1, "Maintaining Weight");
-        centerM.add(card2, "Gaining Weight");
-        centerM.add(card3, "Losing Weight");
+        //means it is a sport and should call sports methods
+        if(exercise >= 0 && exercise <= 18) {
+            addTextToCard(card1, "Overview:");
+            String[] strings = Exercise.SportsOverview(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            addTextToCard(card1, "");
+
+            addTextToCard(card1, "Beginner:");
+            strings = Exercise.SportsBeginner(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            addTextToCard(card1, "");
+
+            addTextToCard(card1, "Intermediate:");
+            strings = Exercise.SportsIntermediate(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+            addTextToCard(card1, "");
+
+            addTextToCard(card1, "Advanced:");
+            strings = Exercise.SportsAdvanced(exercise).split("\n");
+            for(String str: strings)
+                addTextToCard(card1, str);
+        }
+
+        centerM = card1;
+
     }
     /**
      * this method will add the string text to the card and make it center alligned.
@@ -95,49 +97,10 @@ public class NutritionPanel extends JFrame implements ItemListener {
         card.add(lab);
     }
 
-    /**
-     * this method will run through Onepersons vitamins and minerals and add them as
-     * @param card the card to add text to
-     */
-    private void addVitaminsMinerals(JPanel card) {
-        addTextToCard(card, "");
-        addTextToCard(card, "Macronutrients");
-
-        addTextToCard(card, "You should drink " + String.format("%.2f",Nutrition.getWater(OnePerson.person)) + " ounces of water per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getCarbohydrates(OnePerson.person)) + " grams of carbohydrates per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getFat(OnePerson.person)) + " grams of fat per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getFiber(OnePerson.person)) + " grams of fiber per day");
-        addTextToCard(card, "You should have " + String.format("%.2f",Nutrition.getProtein(OnePerson.person)) + " grams of protein per day");
-
-        addTextToCard(card, "");
-        addTextToCard(card, "Minerals:");
-
-        String[] mins = Nutrition.getMinerals(OnePerson.person).toString().split("\n");
-        String[] vit = Nutrition.getVitamin(OnePerson.person).toString().split("\n");
-        
-        for(String str: mins) {
-            addTextToCard(card, str);
-        }
-
-        addTextToCard(card, "");
-        addTextToCard(card, "Vitamins:");
-        
-        for(String str: vit) {
-            addTextToCard(card, str);
-        }
-    }
-
     public void initializeTop() {
-        String[] dList = {"Maintaining Weight", "Gaining Weight", "Losing Weight"};
-
-        Dropdown d = new Dropdown(dList);
-
-        d.getData().addItemListener(this);
-
-        topM.add(d.getData());
 
         // Add button to go back.
-        JButton back = new JButton("Main menu");
+        JButton back = new JButton("Exercise");
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -145,8 +108,7 @@ public class NutritionPanel extends JFrame implements ItemListener {
                     @Override
                     public void run() {
                         frame.dispose();
-                        StartMenu.MenuPanel menu = new MenuPanel();
-                        menu.MenuPane();
+                        ExercisePanel.createAndShowExercise();
                     }
                 });
             }
@@ -260,19 +222,19 @@ public class NutritionPanel extends JFrame implements ItemListener {
     /**
      * Used with main.
      */
-    public static void createAndShowNutrition() {
-        frame = new JFrame("Nutrition Panel.");
+    public static void createAndShowSport(int sport) {
+        frame = new JFrame("Testing out Nutrition Panel.");
         //frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.setSize(500, 500);
         //frame.setLocation(0, 0);
 
-        NutritionPanel nutrition = new NutritionPanel();
+        SportsPanel nutrition = new SportsPanel(sport);
 
         //nutrition.setColor('C', Color.blue);
         nutrition.setColor('T', Color.red);
-        nutrition.setColor('L', Color.green);
-        nutrition.setColor('R', Color.green);
+        nutrition.setColor('L', Color.blue);
+        nutrition.setColor('R', Color.blue);
         nutrition.setColor('B', Color.red);
 
         nutrition.setDimension('T', frame.getWidth(), 100);
@@ -290,11 +252,10 @@ public class NutritionPanel extends JFrame implements ItemListener {
         SwingUtilities.invokeLater(
             new Runnable() {
                 public void run() {
-                    createAndShowNutrition();
+                    createAndShowSport(1);
                 }
             }
         );
 
     }
-
 }
